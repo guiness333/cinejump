@@ -1,6 +1,6 @@
 import React from "react";
 import GlobalStyle from "./global";
-import { Logo } from "./pages/Login/Logo";
+import { Logo, LoginHeader, InputForm } from "./pages/Login/LoginComponents";
 import { Container } from "./pages/Login/LoginContainer";
 function App() {
   return (
@@ -8,6 +8,8 @@ function App() {
       <GlobalStyle />
       <Container>
         <Logo />
+        <LoginHeader />
+        <InputForm />
       </Container>
     </div>
   );

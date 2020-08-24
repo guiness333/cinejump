@@ -5,4 +5,5 @@ export const Container = styled.div`
     width: 70%;
     border: 1px solid black;
     height: 100%;
+    position: relative;
 `;
