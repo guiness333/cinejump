@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineMail } from "react-icons/ai";
-import { RiLockPasswordLine } from 'react-icons/ri';
+import { RiLockPasswordLine } from "react-icons/ri";
 
 export const LogoStyle = styled.img`
   display: block;
@@ -18,12 +18,6 @@ export const LoginHeaderStyle = styled.h1`
   margin-bottom: 30px;
 `;
 
-export interface InputProps {
-  placeholder: string;
-  name?: string;
-}
-
-
 export const InputFormStyle = styled.input.attrs((props) => ({
   placeholder: props.placeholder,
   type: props.type,
@@ -32,37 +26,60 @@ export const InputFormStyle = styled.input.attrs((props) => ({
   font-size: 18px;
   height: 40px;
   width: 300px;
-  border: 1px solid #EFEFEF;
+  border: 1px solid #efefef;
   border-radius: 8px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   padding-left: 35px;
 `;
 export const AiOutlineMailS = styled(AiOutlineMail)`
-    position: absolute;
-    display: flex;
-    margin-left: 8px;
-    margin-top: 10px;
-`
+  position: absolute;
+  display: flex;
+  margin-left: 8px;
+  margin-top: 10px;
+`;
 export const RiLockPasswordLineS = styled(RiLockPasswordLine)`
-    position: absolute;
-    display: flex;
-    margin-left: 8px;
-    margin-top: 10px;
-`
+  position: absolute;
+  display: flex;
+  margin-left: 8px;
+  margin-top: 10px;
+`;
 export const FormStyle = styled.form`
   width: 300px;
   margin: auto;
-`
-export const ButtonStyle = styled.button`
+`;
+export const ButtonStyle = styled("button")<{
+  margem?: Number;
+  borderColor?: String;
+  backgroundColor?: String;
+  textColor?: String;
+}>`
   position: relative;
   margin-top: 10px;
-  margin-left: 18%;
+  margin-left: ${(props) => Number(props.margem)}%;
   width: 200px;
   height: 35px;
   border-radius: 45px;
-  border: 1px solid #e83f5b;
-  background-color: #e83f5b;
-  color: white;
+  border: 1px solid ${(props) => String(props.borderColor)};
+  background-color: ${(props) => String(props.backgroundColor)};
+  color: ${(props) => String(props.textColor)};
   font-size: 14px;
-  font-family: 'Ubuntu'
-`
+  font-family: "Ubuntu";
+`;
+export const Message = styled("p")`
+  /* font-weight: bold; */
+  color: white;
+  font-family: "Ubuntu light";
+  text-align: center;
+  width: 240px;
+  justify-content: center;
+  text-align: center;
+  margin: auto auto 35px;
+
+`;
+export const GuestPanel = styled("div")`
+  position: relative;
+  padding-top: 349px;
+  height: 100%;
+  background-color: #E83F5B;
+
+`;
