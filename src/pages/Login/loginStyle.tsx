@@ -15,6 +15,7 @@ export const LoginHeaderStyle = styled.h1`
   padding-top: 30px;
   text-align: center;
   color: #e83f5b;
+  margin-bottom: 30px;
 `;
 
 export interface InputProps {
@@ -51,4 +52,17 @@ export const RiLockPasswordLineS = styled(RiLockPasswordLine)`
 export const FormStyle = styled.form`
   width: 300px;
   margin: auto;
+`
+export const ButtonStyle = styled.button`
+  position: relative;
+  margin-top: 10px;
+  margin-left: 18%;
+  width: 200px;
+  height: 35px;
+  border-radius: 45px;
+  border: 1px solid #e83f5b;
+  background-color: #e83f5b;
+  color: white;
+  font-size: 14px;
+  font-family: 'Ubuntu'
 `

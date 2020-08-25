@@ -1,16 +1,22 @@
 import React from "react";
 import GlobalStyle from "./global";
-import { Logo, LoginHeader, InputForm } from "./pages/Login/LoginComponents";
+import { Logo, LoginHeader, LoginForm } from "./pages/Login/LoginComponents";
 import { Container } from "./pages/Login/LoginContainer";
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Container>
-        <Logo />
-        <LoginHeader />
-        <InputForm />
+      <Container width="100%">
+        <Container width="70%">
+          <Logo />
+          <LoginHeader />
+          <LoginForm />
+        </Container>
+        <Container width="30%">
+          <h1 >AAAAAA</h1>
+        </Container>
       </Container>
+
     </div>
   );
 }
