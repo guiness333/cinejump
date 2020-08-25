@@ -47,12 +47,7 @@ export const FormStyle = styled.form`
   width: 300px;
   margin: auto;
 `;
-export const ButtonStyle = styled("button")<{
-  margem?: Number;
-  borderColor?: String;
-  backgroundColor?: String;
-  textColor?: String;
-}>`
+export const ButtonStyle = styled("button")<{margem?: Number, borderColor?: String;backgroundColor?: String,textColor?: String;}>`
   position: relative;
   margin-top: 10px;
   margin-left: ${(props) => Number(props.margem)}%;
@@ -64,6 +59,7 @@ export const ButtonStyle = styled("button")<{
   color: ${(props) => String(props.textColor)};
   font-size: 14px;
   font-family: "Ubuntu";
+  cursor: pointer; 
 `;
 export const Message = styled("p")`
   /* font-weight: bold; */
@@ -79,7 +75,9 @@ export const Message = styled("p")`
 export const GuestPanel = styled("div")`
   position: relative;
   padding-top: 349px;
-  height: 100%;
+  height: 1000px;
+  min-height: 1000px;
+  min-width: 300px;
   background-color: #E83F5B;
 
 `;
