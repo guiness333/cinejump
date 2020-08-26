@@ -4,6 +4,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 
 export const LogoStyle = styled.img`
   display: block;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 18%;
@@ -14,7 +15,6 @@ export const LogoStyle = styled.img`
 export const LoginHeaderStyle = styled.h1`
   font-family: "Ubuntu Light";
   font-size: 32px;
-  padding-top: 30px;
   text-align: center;
   color: #e83f5b;
   margin-bottom: 30px;
@@ -76,9 +76,8 @@ export const Message = styled("p")`
 `;
 export const GuestPanel = styled("div")`
   position: relative;
-  padding-top: 349px;
-  height: 1000px;
-  min-height: 1000px;
+  padding-top: 55%;
+  min-height: 100%;
   min-width: 300px;
   background-color: #E83F5B;
 

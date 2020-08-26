@@ -48,7 +48,7 @@ export const SignupDirect = () => {
         backgroundColor="#E83F5B"
         textColor="white"
         borderColor="white"
-        margem={25}
+        margem={(25)}
       >
         CRIAR CONTA
       </ButtonStyle>

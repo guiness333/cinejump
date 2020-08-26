@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     outline: 0;
     box-sizing: border-box}
 body {
+    min-height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     background: #fafafa;
     color: #333;
