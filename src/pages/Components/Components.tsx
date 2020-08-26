@@ -3,8 +3,9 @@ import {
   LogoStyle,
   LoginHeaderStyle,
   InputFormStyle,
-  AiOutlineMailS,
-  RiLockPasswordLineS,
+  FiLockS,
+  FiMailS,
+  FiUserS,
   FormStyle,
   ButtonStyle,
   Message,
@@ -16,15 +17,39 @@ import logo from "../../assets/Logo-red.svg";
 export const Logo = () => {
   return <LogoStyle src={logo}></LogoStyle>;
 };
-export const Header = () => {
+export const LoginHeader = () => {
   return <LoginHeaderStyle>Login</LoginHeaderStyle>;
+};
+export const SignupHeader = () => {
+  return <LoginHeaderStyle>Criar Conta</LoginHeaderStyle>;
 };
 export const LoginForm = () => {
   return (
     <FormStyle onSubmit={() => alert("Login")}>
-      <AiOutlineMailS />
+      <FiMailS />
       <InputFormStyle placeholder="E-mail" type="text"></InputFormStyle>
-      <RiLockPasswordLineS />
+      <FiLockS />
+      <InputFormStyle placeholder="Senha" type="password"></InputFormStyle>
+      <ButtonStyle
+        type="submit"
+        backgroundColor="#E83F5B"
+        textColor="white"
+        borderColor="#E83F5B"
+        margem={18}
+      >
+        ENTRAR
+      </ButtonStyle>
+    </FormStyle>
+  );
+};
+export const SignupForm = () => {
+  return (
+    <FormStyle onSubmit={() => alert("Criar conta")}>
+      <FiUserS />
+      <InputFormStyle placeholder="Nome" type="text"></InputFormStyle>
+      <FiMailS />
+      <InputFormStyle placeholder="E-mail" type="text"></InputFormStyle>
+      <FiLockS />
       <InputFormStyle placeholder="Senha" type="password"></InputFormStyle>
       <ButtonStyle
         type="submit"

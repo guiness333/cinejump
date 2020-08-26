@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Logo,
-  Header,
+  LoginHeader,
   LoginForm,
   SignupDirect,
 } from "../Components/Components";
@@ -11,7 +11,7 @@ export const Main = () => {
     <Container width="100%">
       <Container width="70%">
         <Logo />
-        <Header />
+        <LoginHeader />
         <LoginForm />
       </Container>
       <Container width="30%">
