@@ -4,7 +4,9 @@ import { RiLockPasswordLine } from "react-icons/ri";
 
 export const LogoStyle = styled.img`
   display: block;
-  margin: 8% auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18%;
   width: 80px;
   height: 38px;
 `;
