@@ -1,9 +1,9 @@
 import React from "react";
 import {
   Logo,
-  Header,
-  LoginForm,
+  SignupForm,
   LoginDirect,
+  SignupHeader
 } from "../Components/Components";
 import { Container } from "../Components/LoginContainer";
 function Main() {
@@ -14,8 +14,8 @@ function Main() {
       </Container>
       <Container width="70%">
         <Logo />
-        <Header />
-        <LoginForm />
+        <SignupHeader />
+        <SignupForm />
       </Container>
     </Container>
   );

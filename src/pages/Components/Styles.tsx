@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { AiOutlineMail } from "react-icons/ai";
-import { RiLockPasswordLine } from "react-icons/ri";
+
+import { FiUser, FiMail, FiLock } from "react-icons/fi";
+
 
 export const LogoStyle = styled.img`
   display: block;
@@ -33,13 +34,19 @@ export const InputFormStyle = styled.input.attrs((props) => ({
   background-color: #efefef;
   padding-left: 35px;
 `;
-export const AiOutlineMailS = styled(AiOutlineMail)`
+export const FiMailS = styled(FiMail)`
   position: absolute;
   display: flex;
   margin-left: 8px;
   margin-top: 10px;
 `;
-export const RiLockPasswordLineS = styled(RiLockPasswordLine)`
+export const FiUserS = styled(FiUser)`
+  position: absolute;
+  display: flex;
+  margin-left: 8px;
+  margin-top: 10px;
+`;
+export const FiLockS = styled(FiLock)`
   position: absolute;
   display: flex;
   margin-left: 8px;
