@@ -1,20 +1,20 @@
 import React from "react";
 import {
   Logo,
-  LoginHeader,
+  Header,
   LoginForm,
-  SignupDirect,
-} from "../Login/LoginComponents";
-import { Container } from "../Login/LoginContainer";
+  LoginDirect,
+} from "../Components/Components";
+import { Container } from "../Components/LoginContainer";
 function Main() {
   return (
     <Container width="100%">
       <Container width="30%">
-        <SignupDirect />
+        <LoginDirect />
       </Container>
       <Container width="70%">
         <Logo />
-        <LoginHeader />
+        <Header />
         <LoginForm />
       </Container>
     </Container>

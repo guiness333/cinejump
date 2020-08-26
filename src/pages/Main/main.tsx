@@ -1,17 +1,17 @@
 import React from "react";
 import {
   Logo,
-  LoginHeader,
+  Header,
   LoginForm,
   SignupDirect,
-} from "../Login/LoginComponents";
-import { Container } from "../Login/LoginContainer";
-function Main() {
+} from "../Components/Components";
+import { Container } from "../Components/LoginContainer";
+export const Main = () => {
   return (
     <Container width="100%">
       <Container width="70%">
         <Logo />
-        <LoginHeader />
+        <Header />
         <LoginForm />
       </Container>
       <Container width="30%">
