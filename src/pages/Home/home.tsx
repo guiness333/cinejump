@@ -1,12 +1,14 @@
 import React from "react";
 
 import { Container } from "../Components/LoginContainer";
-import { HeaderBackground } from "../Components/Components";
+import { HeaderBackground, Footer } from "../Components/Components";
 
 const Home = () => {
   return (
     <Container width="100%">
         <HeaderBackground />
+        <h1>aaaaaa</h1>
+        <Footer />
     </Container>
     );
 };

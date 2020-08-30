@@ -20,7 +20,11 @@ export const LoginHeaderStyle = styled.h1`
   color: #e83f5b;
   margin-bottom: 30px;
 `;
-
+export const LogoFooterStyle = styled.img`
+  fill: #fff;
+  height: 30px;
+  margin-top: 60px;
+`;
 export const InputFormStyle = styled.input.attrs((props) => ({
   placeholder: props.placeholder,
   type: props.type,
@@ -89,9 +93,35 @@ export const GuestPanel = styled("div")`
   background-color: #E83F5B;
 
 `;
-export const Header = styled("div")`
+export const Header = styled("header")`
   position: absolute;
+  z-index: -1;
   width: 100%;
   height: 170px;
   background-color:#E83F5B;
+`;
+export const FooterStyle = styled("footer")`
+  width: 100%;
+  height: 170px;
+  background-color:#E83F5B;
+  top: 100%;
+  position: relative;
+  text-align: center;
+  display: flexbox;
+  justify-content: center;
+
+
+`;
+export const LinkContainer = styled("div")`
+  width: 400px;
+  height: 150px;
+`;
+
+export const LinkStyle  = styled("a")`
+  color: white;
+  font-family: Ubuntu;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
 `;

@@ -11,9 +11,14 @@ import {
   Message,
   GuestPanel,
   Header,
+  FooterStyle,
+  LinkStyle,
+  LinkContainer,
+  LogoFooterStyle,
 } from "./Styles";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/Logo-red.svg";
+import logoWhite from "../../assets/Logo-white.svg";
 
 export const Logo = () => {
   return <LogoStyle src={logo}></LogoStyle>;
@@ -101,7 +106,9 @@ export const LoginDirect = () => {
       <Message>
         <h1>Bem-vindo, Jumper</h1>
       </Message>
-      <Message>Para se manter conectado, faça login com suas credenciais</Message>
+      <Message>
+        Para se manter conectado, faça login com suas credenciais
+      </Message>
       <ButtonStyle
         onClick={handleClick}
         backgroundColor="#E83F5B"
@@ -116,7 +123,21 @@ export const LoginDirect = () => {
 };
 
 export const HeaderBackground = () => {
+  return <Header />;
+};
+export const Footer = () => {
   return (
-    <Header />
-  )
-}
+    <FooterStyle>
+      <LinkContainer>
+        <LogoFooterStyle src={logoWhite}></LogoFooterStyle>
+      </LinkContainer>
+      <LinkContainer>
+        <LinkStyle>Desenvolvido por Walber Richard</LinkStyle>
+        <LinkStyle>Proposta do projeto</LinkStyle>
+        <LinkStyle>Prototipo no Figma</LinkStyle>
+        <LinkStyle>Apresentação ao comitê</LinkStyle>
+        <LinkStyle>Documentação</LinkStyle>
+      </LinkContainer>
+    </FooterStyle>
+  );
+};
