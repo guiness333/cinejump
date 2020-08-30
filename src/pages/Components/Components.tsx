@@ -10,6 +10,7 @@ import {
   ButtonStyle,
   Message,
   GuestPanel,
+  Header,
 } from "./Styles";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/Logo-red.svg";
@@ -24,8 +25,12 @@ export const SignupHeader = () => {
   return <LoginHeaderStyle>Criar Conta</LoginHeaderStyle>;
 };
 export const LoginForm = () => {
+  let history = useHistory();
+  function handleClick() {
+    history.push("/home");
+  }
   return (
-    <FormStyle onSubmit={() => alert("Login")}>
+    <FormStyle onSubmit={handleClick}>
       <FiMailS />
       <InputFormStyle placeholder="E-mail" type="text"></InputFormStyle>
       <FiLockS />
@@ -109,3 +114,9 @@ export const LoginDirect = () => {
     </GuestPanel>
   );
 };
+
+export const HeaderBackground = () => {
+  return (
+    <Header />
+  )
+}
