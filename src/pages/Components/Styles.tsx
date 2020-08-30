@@ -102,7 +102,7 @@ export const Header = styled("header")`
 `;
 export const FooterStyle = styled("footer")`
   width: 100%;
-  height: 170px;
+  height: 150px;
   background-color:#E83F5B;
   top: 100%;
   position: relative;
