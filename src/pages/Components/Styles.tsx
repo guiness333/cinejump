@@ -89,3 +89,9 @@ export const GuestPanel = styled("div")`
   background-color: #E83F5B;
 
 `;
+export const Header = styled("div")`
+  position: absolute;
+  width: 100%;
+  height: 170px;
+  background-color:#E83F5B;
+`;
