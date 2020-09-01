@@ -9,7 +9,7 @@ export const LogoStyle = styled.img`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 18%;
-  width: 80px;
+  width: 100px;
   height: 38px;
 `;
 
@@ -124,4 +124,5 @@ export const LinkStyle  = styled("a")`
   display: block;
   margin-bottom: 5px;
   margin-top: 10px;
+  text-decoration: none;
 `;
