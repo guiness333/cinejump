@@ -9,6 +9,11 @@ import { Header, Menu, Item, Icon } from "./HeaderNav/headerNav";
 import { LogoStyle, LinkStyle } from "../Components/Styles";
 import { MoviesRow, MovieItem, MoviesColumn } from "./Rows/rowContainer";
 import backdrop from "../../assets/AmTfxc3S22z7WWC7KAR3SPs70Bl.jpg";
+import {
+  TextContainter,
+  TitleText,
+  DiscriptionText,
+} from "./Text/highlightText";
 
 const Home = () => {
   return (
@@ -44,6 +49,17 @@ const Home = () => {
         </Menu>
       </Header>
       <MoviesRow>
+        <TextContainter>
+          <TitleText>1917</TitleText>
+          <DiscriptionText>
+            Lightning McQueen, a hotshot rookie race car driven to succeed,
+            discovers that life is about the journey, not the finish line, when
+            he finds himself unexpectedly detoured in the sleepy Route
+            Lightning McQueen, a hotshot rookie race car driven to succeed,
+            discovers that life is about the journey, not the finish line, when
+            he finds himself unexpectedly detoured in the sleepy Route
+          </DiscriptionText>
+        </TextContainter>
         <MovieItem src={backdrop} width={718} height={328} align={"inline"} />
         <MoviesColumn>
           <MovieItem src={backdrop} width={270} height={159} align={"block"} />

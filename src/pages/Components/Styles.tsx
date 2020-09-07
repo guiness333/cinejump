@@ -97,7 +97,7 @@ export const Header = styled("header")`
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 270px;
+  height: 376px;
   background-color:#E83F5B;
 `;
 export const FooterStyle = styled("footer")`
