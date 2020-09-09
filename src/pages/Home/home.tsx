@@ -9,10 +9,12 @@ import { Header, Menu, Item, Icon } from "./HeaderNav/headerNav";
 import { LogoStyle, LinkStyle } from "../Components/Styles";
 import { MoviesRow, MovieItem, MoviesColumn } from "./Rows/rowContainer";
 import backdrop from "../../assets/AmTfxc3S22z7WWC7KAR3SPs70Bl.jpg";
+import { MovieContainer } from "./MovieList/movieList";
 import {
   TextContainter,
   TitleText,
   DiscriptionText,
+  CategoryText,
 } from "./Text/highlightText";
 
 const Home = () => {
@@ -48,16 +50,16 @@ const Home = () => {
           </Item>
         </Menu>
       </Header>
-      <MoviesRow>
+      <MoviesRow scroll={"hidden"}>
         <TextContainter>
           <TitleText>1917</TitleText>
           <DiscriptionText>
             Lightning McQueen, a hotshot rookie race car driven to succeed,
             discovers that life is about the journey, not the finish line, when
-            he finds himself unexpectedly detoured in the sleepy Route
-            Lightning McQueen, a hotshot rookie race car driven to succeed,
-            discovers that life is about the journey, not the finish line, when
-            he finds himself unexpectedly detoured in the sleepy Route
+            he finds himself unexpectedly detoured in the sleepy Route Lightning
+            McQueen, a hotshot rookie race car driven to succeed, discovers that
+            life is about the journey, not the finish line, when he finds
+            himself unexpectedly detoured in the sleepy Route
           </DiscriptionText>
         </TextContainter>
         <MovieItem src={backdrop} width={718} height={328} align={"inline"} />
@@ -66,6 +68,31 @@ const Home = () => {
           <MovieItem src={backdrop} width={270} height={159} align={"block"} />
         </MoviesColumn>
       </MoviesRow>
+      <CategoryText>Populares</CategoryText>
+      <MoviesRow scroll={"none"}>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+        <MovieContainer>
+          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
+        </MovieContainer>
+      </MoviesRow>
+
       <Footer />
     </Container>
   );

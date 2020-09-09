@@ -17,6 +17,14 @@ export const TitleText = styled("h1")`
   margin-left: 10px;
   margin-bottom: 5px;
 `;
+export const CategoryText = styled("h1")`
+    color: #E83F5B;
+    font-family: "Ubuntu Light";
+    font-size: 22px;
+    margin: 0 auto 10px auto;
+    width: 1000px;
+    
+`;
 export const DiscriptionText = styled("p")`
   color: white;
   margin-left: 20px;
