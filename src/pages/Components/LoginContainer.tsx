@@ -4,5 +4,5 @@ export const Container = styled('div')<{width: String}>`
     width: ${props => String(props.width)};
     height: 1000px;
     position: relative;
-    border: 1px solid black;
+    float: left;
 `;

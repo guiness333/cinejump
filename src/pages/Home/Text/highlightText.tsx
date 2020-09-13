@@ -20,7 +20,7 @@ export const TitleText = styled("h1")`
 export const CategoryText = styled("h1")`
     color: #E83F5B;
     font-family: "Ubuntu Light";
-    font-size: 22px;
+    font-size: 18px;
     margin: 0 auto 10px auto;
     width: 1000px;
     

@@ -9,13 +9,15 @@ import { Header, Menu, Item, Icon } from "./HeaderNav/headerNav";
 import { LogoStyle, LinkStyle } from "../Components/Styles";
 import { MoviesRow, MovieItem, MoviesColumn } from "./Rows/rowContainer";
 import backdrop from "../../assets/AmTfxc3S22z7WWC7KAR3SPs70Bl.jpg";
-import { MovieContainer } from "./MovieList/movieList";
 import {
   TextContainter,
   TitleText,
   DiscriptionText,
   CategoryText,
 } from "./Text/highlightText";
+import MovieRow from './MovieList/movieRow';
+
+
 
 const Home = () => {
   return (
@@ -69,29 +71,9 @@ const Home = () => {
         </MoviesColumn>
       </MoviesRow>
       <CategoryText>Populares</CategoryText>
-      <MoviesRow scroll={"none"}>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={165} height={253} align={"inline"} />
-        </MovieContainer>
-      </MoviesRow>
+      <MovieRow numero={10}/>
+      <CategoryText>Em exibição</CategoryText>
+      <MovieRow />
 
       <Footer />
     </Container>

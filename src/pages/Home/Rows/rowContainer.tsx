@@ -13,7 +13,7 @@ export const MoviesRow = styled("div")<{scroll: String}>`
 export const MoviesColumn = styled("div")`
     display: inline-block;
 `;
-export const MovieItem = styled("img")<{width: Number; height: Number; align: String; Title?: String}>`
+export const MovieItem = styled("img")<{width: Number; height: Number; align?: String; Title?: String}>`
     display: ${(props) => String(props.align)};
     width: ${(props) => Number(props.width)}px;
     height: ${(props) => Number(props.height)}px;
