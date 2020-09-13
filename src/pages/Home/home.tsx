@@ -13,7 +13,7 @@ import {
 import MovieRow from './MovieList/movieRow';
 import api, { API_KEY , LANGUAGE} from '../../services/api'; 
 import Spinner from '../../assets/Spinner-0.4s-331px.svg';
-
+import Highlight from './Highlight/highlight';
 
 type API_MOVIE = {
   popularity: Number,
@@ -35,9 +35,12 @@ const Home =  () => {
   useEffect(() => {
     PopularMovies();
     NowMovies();
+    HighlightMovies();
   }, [])
   const [popularMovies, setPopularMovies] = useState();
   const [nowMovies, setNowMovies] = useState();
+
+  const [topRatedMovies, setTopRatedMovies] = useState();
   const PopularMovies = async() =>{
     let movies: any;
     movies = await api.get(`/movie/popular?api_key=${API_KEY}&language=${LANGUAGE}&page=1`);
@@ -48,28 +51,20 @@ const Home =  () => {
     movies = await api.get(`/movie/now_playing?api_key=${API_KEY}&language=${LANGUAGE}&page=1`);
     setNowMovies(movies.data.results);
   }
+  const HighlightMovies = async() =>{
+    let movies: any;
+    movies = await api.get(`/movie/top_rated?api_key=${API_KEY}&language=${LANGUAGE}&page=1`);
+    setTopRatedMovies(movies.data.results);
+  }
   return (
     <Container width="100%" >
       <HeaderBackground />
       <HeaderC />
-      <MoviesRow scroll={"hidden"}>
-        <TextContainter>
-          <TitleText>1917</TitleText>
-          <DiscriptionText>
-            Lightning McQueen, a hotshot rookie race car driven to succeed,
-            discovers that life is about the journey, not the finish line, when
-            he finds himself unexpectedly detoured in the sleepy Route Lightning
-            McQueen, a hotshot rookie race car driven to succeed, discovers that
-            life is about the journey, not the finish line, when he finds
-            himself unexpectedly detoured in the sleepy Route
-          </DiscriptionText>
-        </TextContainter>
-        <MovieItem src={backdrop} width={718} height={328} align={"inline"} />
-        <MoviesColumn>
-          <MovieItem src={backdrop} width={270} height={159} align={"block"} />
-          <MovieItem src={backdrop} width={270} height={159} align={"block"} />
-        </MoviesColumn>
-      </MoviesRow>
+      {topRatedMovies ?
+        <Highlight movies={topRatedMovies}/>
+        :
+        <CategoryText><img src={Spinner} alt="Carregando"/></CategoryText> 
+      }
       <CategoryText>Populares</CategoryText>
       {popularMovies ?
         <MovieRow movies={popularMovies}/>
