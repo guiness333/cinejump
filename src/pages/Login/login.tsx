@@ -9,7 +9,7 @@ import { Container } from "../Components/LoginContainer";
 export const Main = () => {
   return (
     <Container width="100%" height="1000">
-      <Container width="70%">
+      <Container width="70%" height="1000">
         <Logo />
         <LoginHeader />
         <LoginForm />
