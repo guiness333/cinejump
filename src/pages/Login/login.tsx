@@ -8,13 +8,13 @@ import {
 import { Container } from "../Components/LoginContainer";
 export const Main = () => {
   return (
-    <Container width="100%">
+    <Container width="100%" height="1000">
       <Container width="70%">
         <Logo />
         <LoginHeader />
         <LoginForm />
       </Container>
-      <Container width="30%">
+      <Container width="30%" height="1000">
         <SignupDirect />
       </Container>
     </Container>
