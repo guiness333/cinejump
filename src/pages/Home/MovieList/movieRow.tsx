@@ -3,33 +3,22 @@ import React from "react";
 import { MoviesRow, MovieItem } from "../Rows/rowContainer";
 import { MovieContainer } from "./movieList";
 
-import backdrop from "../../../assets/AmTfxc3S22z7WWC7KAR3SPs70Bl.jpg";
-
 const MovieRow = (props: any) => {
   return (
-      <MoviesRow scroll={"none"}>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180}  />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180}  />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180}  />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180} />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180}  />
-        </MovieContainer>
-        <MovieContainer>
-          <MovieItem src={backdrop} width={140} height={180} />
-        </MovieContainer>
-      </MoviesRow>
+    <MoviesRow scroll={"none"}>
+      {props.movies.map((movie: any) => {
+          return (
+            <MovieContainer key={movie.id}>
+            <MovieItem
+              src={String("https://image.tmdb.org/t/p/w1280/"+movie.poster_path)}
+              width={140}
+              height={180}
+            />
+           </MovieContainer>
+          );
+        })
+      }
+    </MoviesRow>
   );
 };
 
