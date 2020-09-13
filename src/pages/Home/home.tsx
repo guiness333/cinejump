@@ -12,7 +12,7 @@ import {
 } from "./Text/highlightText";
 import MovieRow from './MovieList/movieRow';
 import api, { API_KEY , LANGUAGE} from '../../services/api'; 
-
+import Spinner from '../../assets/Spinner-0.4s-331px.svg';
 
 
 type API_MOVIE = {
@@ -74,13 +74,13 @@ const Home =  () => {
       {popularMovies ?
         <MovieRow movies={popularMovies}/>
         :
-        <CategoryText>Carregando...</CategoryText>
+        <CategoryText><img src={Spinner} alt="Carregando"/></CategoryText> 
       }
       <CategoryText>Em exibição</CategoryText>
       {nowMovies ?
         <MovieRow movies={nowMovies}/>
         :
-        <CategoryText>Carregando...</CategoryText>
+        <CategoryText><img src={Spinner} alt="Carregando"/></CategoryText>
       }
 
       <Footer />
