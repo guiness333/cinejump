@@ -12,7 +12,13 @@ const MovieRow = (props: any) => {
       {props.movies.map((movie: any) => {
           return (
             <MovieContainer key={movie.id}>
-            <Favorito src={props.favoritos.includes(movie.original_title) ? RedHeart : BlackHeart} className="favorito" onClick={() => props.click(movie)}/>
+            {props.favoritos &&
+            <Favorito src={props.favoritos.find((el: any) => el.original_title === movie.original_title) ? RedHeart : BlackHeart} className="favorito" onClick={() => props.click(movie)}/>
+            }
+            {
+              props.favorito &&
+              <Favorito src={RedHeart} className="favorito" onClick={() => props.click(movie)}/>
+            }
             <MovieItem
               src={String("https://image.tmdb.org/t/p/w1280/"+movie.poster_path)}
               width={140}
