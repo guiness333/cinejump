@@ -29,25 +29,24 @@ const Home = () => {
   const [popularMovies, setPopularMovies] = useState();
   const [nowMovies, setNowMovies] = useState();
   const [topRatedMovies, setTopRatedMovies] = useState();
-
+  let favo: string;
   useEffect(() => {
     PopularMovies();
     NowMovies();
     HighlightMovies();
+    favo = localStorage.getItem('favoritos') || '';
+    setFavoritos(JSON.parse(favo));
   }, []);
-  useEffect(() => {
-    console.log('atualizou');
-  }, [favoritos]);
+
   const handleClick = (movie: API_MOVIE) => {
     if (!favoritos.includes(movie.original_title)) {
       setFavoritos([...favoritos, movie.original_title]);
-
-      console.log('poe')
+      localStorage.setItem('favoritos', JSON.stringify([...favoritos, movie.original_title]));
     }else{
       let fav = favoritos;
       fav.splice(favoritos.indexOf(movie.original_title), 1);
-      console.log('tira')
       setFavoritos([...fav]);
+      localStorage.setItem('favoritos', JSON.stringify([...fav]));
     }
     console.log(favoritos);
   };
