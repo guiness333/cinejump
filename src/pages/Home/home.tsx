@@ -25,30 +25,37 @@ type API_MOVIE = {
   release_date: String;
 };
 const Home = () => {
-  const [favoritos, setFavoritos] = useState(Array<String>());
-  const [popularMovies, setPopularMovies] = useState();
-  const [nowMovies, setNowMovies] = useState();
+  const [favoritosMovies, setFavoritosMovies] = useState(Array<API_MOVIE>());
+  const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
+  const [nowMovies, setNowMovies] = useState(Array<API_MOVIE>());
   const [topRatedMovies, setTopRatedMovies] = useState();
-  let favo: string;
   useEffect(() => {
     PopularMovies();
     NowMovies();
     HighlightMovies();
-    favo = localStorage.getItem('favoritos') || '';
-    setFavoritos(JSON.parse(favo));
+    let fav = localStorage.getItem("favoritos");
+    if (fav) {
+      setFavoritosMovies(JSON.parse(fav));
+    }
   }, []);
 
   const handleClick = (movie: API_MOVIE) => {
-    if (!favoritos.includes(movie.original_title)) {
-      setFavoritos([...favoritos, movie.original_title]);
-      localStorage.setItem('favoritos', JSON.stringify([...favoritos, movie.original_title]));
-    }else{
-      let fav = favoritos;
-      fav.splice(favoritos.indexOf(movie.original_title), 1);
-      setFavoritos([...fav]);
-      localStorage.setItem('favoritos', JSON.stringify([...fav]));
+    if (!favoritosMovies.find(el => el.original_title === movie.original_title)) {
+      console.log(favoritosMovies);
+      setFavoritosMovies([...favoritosMovies, movie]);
+      localStorage.setItem(
+        "favoritos",
+        JSON.stringify([...favoritosMovies, movie])
+      );
+    } else {
+      let a = favoritosMovies.find(el => el.original_title === movie.original_title);
+      let fav2 = favoritosMovies;
+      if(a){
+        fav2.splice(favoritosMovies.indexOf(a), 1);
+      }
+      setFavoritosMovies([...fav2]);
+      localStorage.setItem("favoritos", JSON.stringify([...fav2]));
     }
-    console.log(favoritos);
   };
   const PopularMovies = async () => {
     let movies: any;
@@ -84,7 +91,11 @@ const Home = () => {
       )}
       <CategoryText>Populares</CategoryText>
       {popularMovies ? (
-        <MovieRow movies={popularMovies} click={handleClick} favoritos={favoritos}/>
+        <MovieRow
+          movies={popularMovies}
+          click={handleClick}
+          favoritos={favoritosMovies}
+        />
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
@@ -92,7 +103,23 @@ const Home = () => {
       )}
       <CategoryText>Em exibição</CategoryText>
       {nowMovies ? (
-        <MovieRow movies={nowMovies} click={handleClick} favoritos={favoritos}/>
+        <MovieRow
+          movies={nowMovies}
+          click={handleClick}
+          favoritos={favoritosMovies}
+        />
+      ) : (
+        <CategoryText>
+          <img src={Spinner} alt="Carregando" />
+        </CategoryText>
+      )}
+      <CategoryText>Favoritos</CategoryText>
+      {favoritosMovies ? (
+        <MovieRow
+          movies={favoritosMovies}
+          click={handleClick}
+          favorito={true}
+        />
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
