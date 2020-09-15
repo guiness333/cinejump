@@ -11,5 +11,13 @@ body {
     background: #fafafa;
     color: #333;
 }
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
 `;
+
 export default GlobalStyle;

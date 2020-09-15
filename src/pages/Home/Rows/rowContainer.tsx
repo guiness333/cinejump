@@ -10,6 +10,28 @@ export const MoviesRow = styled("div")<{scroll: String}>`
     display: flex;
 
 `;
+export const TrailerContainer = styled("div")`
+    padding-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #80BCB8;
+    width: 100%;
+    display: inline-block;
+`;
+export const Videos = styled("div")`
+    display: flex;
+    margin: 0 auto;
+    width: 1010px;
+    scrollbar-track-color: #80BCB8;
+    scrollbar-color: #80BCB8;
+    overflow-x: scroll;
+`;
+export const Trailers = styled("div")`
+    margin: 50px;
+`;
+export const VideosContainer = styled("div")`
+
+`;
 export const MoviesColumn = styled("div")`
     display: inline-block;
 `;
