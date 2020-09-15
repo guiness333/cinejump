@@ -3,7 +3,7 @@ import { Container } from "../Components/LoginContainer";
 import { HeaderBackground, Footer } from "../Components/Components";
 import HeaderC from "./Header/header";
 import { CategoryText } from "./Text/highlightText";
-import MovieRow from "./MovieList/movieRow";
+import { MovieRow, TrailerRow } from "./MovieList/movieRow";
 import api, { API_KEY, LANGUAGE } from "../../services/api";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
 import Highlight from "./Highlight/highlight";
@@ -29,6 +29,7 @@ const Home = () => {
   const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
   const [nowMovies, setNowMovies] = useState(Array<API_MOVIE>());
   const [topRatedMovies, setTopRatedMovies] = useState();
+  const [videosKeys, setVideoKey] = useState(Array<String>());
   useEffect(() => {
     PopularMovies();
     NowMovies();
@@ -38,9 +39,10 @@ const Home = () => {
       setFavoritosMovies(JSON.parse(fav));
     }
   }, []);
-
   const handleClick = (movie: API_MOVIE) => {
-    if (!favoritosMovies.find(el => el.original_title === movie.original_title)) {
+    if (
+      !favoritosMovies.find((el) => el.original_title === movie.original_title)
+    ) {
       console.log(favoritosMovies);
       setFavoritosMovies([...favoritosMovies, movie]);
       localStorage.setItem(
@@ -48,9 +50,11 @@ const Home = () => {
         JSON.stringify([...favoritosMovies, movie])
       );
     } else {
-      let a = favoritosMovies.find(el => el.original_title === movie.original_title);
+      let a = favoritosMovies.find(
+        (el) => el.original_title === movie.original_title
+      );
       let fav2 = favoritosMovies;
-      if(a){
+      if (a) {
         fav2.splice(favoritosMovies.indexOf(a), 1);
       }
       setFavoritosMovies([...fav2]);
@@ -70,6 +74,14 @@ const Home = () => {
       `/movie/now_playing?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
     );
     setNowMovies(movies.data.results);
+    getTrailers(movies.data.results[0].id)
+  };
+  const getTrailers = async (id: any) => {
+    let movies: any;
+    movies = await api.get(
+      `/movie/${id}/videos?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
+    );
+    setVideoKey([...videosKeys, String(movies.data.results[0].key)]);;
   };
   const HighlightMovies = async () => {
     let movies: any;
@@ -108,6 +120,13 @@ const Home = () => {
           click={handleClick}
           favoritos={favoritosMovies}
         />
+      ) : (
+        <CategoryText>
+          <img src={Spinner} alt="Carregando" />
+        </CategoryText>
+      )}
+      {videosKeys ? (
+        <TrailerRow trailers={videosKeys}/>
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
