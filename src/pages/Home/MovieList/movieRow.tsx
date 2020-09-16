@@ -6,6 +6,7 @@ import {
   TrailerContainer,
   Trailers,
   Videos,
+  Frame,
 } from "../Rows/rowContainer";
 import { MovieContainer } from "./movieList";
 import { Favorito } from "../../Components/Favorito";
@@ -60,11 +61,11 @@ export const TrailerRow = (props: any) => {
           props.trailers.map((trailer: any) => {
             return (
               <Trailers>
-                <iframe title={trailer}
-                  width="240"
-                  height="185"
+                <Frame title={trailer}
+                  width="360"
+                  height="280"
                   src={`https://www.youtube.com/embed/${trailer}`}
-                ></iframe>
+                ></Frame>
               </Trailers>
             );
           })}

@@ -74,14 +74,18 @@ const Home = () => {
       `/movie/now_playing?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
     );
     setNowMovies(movies.data.results);
-    getTrailers(movies.data.results[0].id)
+    let a,b,c;
+    a = await getTrailers(movies.data.results[0].id);
+    b = await getTrailers(movies.data.results[1].id);
+    c = await getTrailers(movies.data.results[2].id);
+    setVideoKey([...videosKeys, a,b,c]);
   };
   const getTrailers = async (id: any) => {
     let movies: any;
     movies = await api.get(
       `/movie/${id}/videos?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
     );
-    setVideoKey([...videosKeys, String(movies.data.results[0].key)]);;
+    return movies.data.results[0].key;
   };
   const HighlightMovies = async () => {
     let movies: any;
