@@ -105,7 +105,7 @@ const Home = () => {
           <img src={Spinner} alt="Carregando" />
         </CategoryText>
       )}
-      <CategoryText>Populares</CategoryText>
+      <CategoryText color={'#E83F5B'}>Populares</CategoryText>
       {popularMovies ? (
         <MovieRow
           movies={popularMovies}
@@ -117,7 +117,7 @@ const Home = () => {
           <img src={Spinner} alt="Carregando" />
         </CategoryText>
       )}
-      <CategoryText>Em exibição</CategoryText>
+      <CategoryText color={'#E83F5B'}>Em exibição</CategoryText>
       {nowMovies ? (
         <MovieRow
           movies={nowMovies}
@@ -136,7 +136,7 @@ const Home = () => {
           <img src={Spinner} alt="Carregando" />
         </CategoryText>
       )}
-      <CategoryText>Favoritos</CategoryText>
+      <CategoryText color={'#E83F5B'}>Favoritos</CategoryText>
       {favoritosMovies ? (
         <MovieRow
           movies={favoritosMovies}

@@ -55,7 +55,7 @@ export const MovieRow = (props: any) => {
 export const TrailerRow = (props: any) => {
   return (
     <TrailerContainer>
-      <CategoryText>Trailers</CategoryText>
+      <CategoryText color={'white'}>Trailers</CategoryText>
       <Videos>
         {props.trailers &&
           props.trailers.map((trailer: any) => {
