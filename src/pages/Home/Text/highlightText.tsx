@@ -17,8 +17,8 @@ export const TitleText = styled("h1")`
   margin-left: 10px;
   margin-bottom: 5px;
 `;
-export const CategoryText = styled("h1")`
-    color: #E83F5B;
+export const CategoryText = styled("h1")<{color?: String}>`
+    color: ${(props) => props.color};
     font-family: "Ubuntu Light";
     font-size: 18px;
     margin: 0 auto 10px auto;

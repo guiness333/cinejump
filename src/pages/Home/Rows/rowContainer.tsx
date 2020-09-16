@@ -26,8 +26,12 @@ export const Videos = styled("div")`
     scrollbar-color: #80BCB8;
     overflow-x: scroll;
 `;
+export const Frame = styled("iframe")`
+    padding: 0;
+    margin: 0;
+`;
 export const Trailers = styled("div")`
-    margin: 50px;
+    margin: 10px;
 `;
 export const VideosContainer = styled("div")`
 

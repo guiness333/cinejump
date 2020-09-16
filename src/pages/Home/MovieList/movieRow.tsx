@@ -6,6 +6,7 @@ import {
   TrailerContainer,
   Trailers,
   Videos,
+  Frame,
 } from "../Rows/rowContainer";
 import { MovieContainer } from "./movieList";
 import { Favorito } from "../../Components/Favorito";
@@ -54,17 +55,17 @@ export const MovieRow = (props: any) => {
 export const TrailerRow = (props: any) => {
   return (
     <TrailerContainer>
-      <CategoryText>Trailers</CategoryText>
+      <CategoryText color={'white'}>Trailers</CategoryText>
       <Videos>
         {props.trailers &&
           props.trailers.map((trailer: any) => {
             return (
               <Trailers>
-                <iframe title={trailer}
-                  width="240"
-                  height="185"
+                <Frame title={trailer}
+                  width="360"
+                  height="280"
                   src={`https://www.youtube.com/embed/${trailer}`}
-                ></iframe>
+                ></Frame>
               </Trailers>
             );
           })}
