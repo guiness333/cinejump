@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 import { FiUser, FiMail, FiLock } from "react-icons/fi";
 
+import {ReactComponent as Logo} from "../../assets/Logo-red.svg";
 
-export const LogoStyle = styled.img`
+export const LogoStyle = styled(Logo)`
   display: block;
   margin-top: 20px;
   margin-left: auto;
@@ -12,7 +13,6 @@ export const LogoStyle = styled.img`
   width: 100px;
   height: 38px;
 `;
-
 export const LoginHeaderStyle = styled.h1`
   font-family: "Ubuntu Light";
   font-size: 32px;

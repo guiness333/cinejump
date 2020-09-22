@@ -17,11 +17,10 @@ import {
   LogoFooterStyle,
 } from "./Styles";
 import { useHistory } from "react-router-dom";
-import logo from "../../assets/Logo-red.svg";
 import logoWhite from "../../assets/Logo-white.svg";
 
 export const Logo = () => {
-  return <LogoStyle src={logo}></LogoStyle>;
+  return <LogoStyle fill={"Black"}/>//<LogoStyle src={logo}></LogoStyle>;
 };
 export const LoginHeader = () => {
   return <LoginHeaderStyle>Login</LoginHeaderStyle>;
