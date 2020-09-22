@@ -19,8 +19,8 @@ import {
 import { useHistory } from "react-router-dom";
 import logoWhite from "../../assets/Logo-white.svg";
 
-export const Logo = () => {
-  return <LogoStyle fill={"Black"}/>//<LogoStyle src={logo}></LogoStyle>;
+export const Logo = (props: any) => {
+  return <LogoStyle fill={props.color}/>//<LogoStyle src={logo}></LogoStyle>;
 };
 export const LoginHeader = () => {
   return <LoginHeaderStyle>Login</LoginHeaderStyle>;

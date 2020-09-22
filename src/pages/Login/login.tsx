@@ -10,7 +10,7 @@ export const Main = () => {
   return (
     <Container width="100%" height="1000">
       <Container width="70%" height="1000">
-        <Logo />
+        <Logo color={"#E83F5B"}/>
         <LoginHeader />
         <LoginForm />
       </Container>

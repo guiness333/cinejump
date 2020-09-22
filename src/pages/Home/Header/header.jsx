@@ -1,7 +1,6 @@
 import { Header, Menu, Item, Icon } from "../HeaderNav/headerNav";
 import { LogoStyle, LinkStyle } from "../../Components/Styles";
 import React from "react";
-import logoWhite from "../../../assets/Logo-white.svg";
 import SearchIcon from "../../../assets/FiSearch.svg";
 import UserIcon from "../../../assets/FaRegUserCircle.svg";
 
@@ -19,7 +18,7 @@ const HeaderC = () => {
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <LogoStyle src={logoWhite} />
+            <LogoStyle fill={"#FFF"} />
           </LinkStyle>
         </Item>
       </Menu>
