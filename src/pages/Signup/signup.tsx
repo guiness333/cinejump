@@ -4,8 +4,8 @@ import {
   SignupForm,
   LoginDirect,
   SignupHeader
-} from "../Components/Components";
-import { Container } from "../Components/LoginContainer";
+} from "../Components";
+import { Container } from "../Components";
 function Main() {
   return (
     <Container width="100%">
@@ -13,7 +13,7 @@ function Main() {
         <LoginDirect />
       </Container>
       <Container width="70%" height="1000">
-        <Logo />
+        <Logo color={'#E83F5B'}/>
         <SignupHeader />
         <SignupForm />
       </Container>

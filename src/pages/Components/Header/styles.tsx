@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {ReactComponent as Logo} from '../../../assets/Logo-red.svg';
 export const Header = styled("div")`
     width: 100%;
     height: 100px;
@@ -16,4 +16,22 @@ export const Item = styled("li")`
 `;
 export const Icon = styled("img")`
     width: 40px;
+`;
+export const LogoStyle = styled(Logo)`
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18%;
+  width: 100px;
+  height: 38px;
+`;
+export const LinkStyle  = styled("a")`
+  color: white;
+  font-family: Ubuntu;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  text-decoration: none;
 `;

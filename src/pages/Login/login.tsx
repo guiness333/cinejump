@@ -4,8 +4,8 @@ import {
   LoginHeader,
   LoginForm,
   SignupDirect,
-} from "../Components/Components";
-import { Container } from "../Components/LoginContainer";
+} from "../Components";
+import { Container } from "../Components";
 export const Main = () => {
   return (
     <Container width="100%" height="1000">

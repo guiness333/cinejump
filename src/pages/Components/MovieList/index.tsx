@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryText } from "../Text/highlightText";
+import { CategoryText } from "../Text";
 import {
   MoviesRow,
   MovieItem,
@@ -7,9 +7,9 @@ import {
   Trailers,
   Videos,
   Frame,
-} from "../Rows/rowContainer";
+} from "../Containers/rowContainer";
 import { MovieContainer } from "./movieList";
-import { Favorito } from "../../Components/Favorito";
+import { Favorito } from "../Favorito";
 
 export const MovieRow = (props: any) => {
   return (
@@ -58,7 +58,7 @@ export const TrailerRow = (props: any) => {
         {props.trailers &&
           props.trailers.map((trailer: any) => {
             return (
-              <Trailers>
+              <Trailers key={trailer}>
                 <Frame title={trailer}
                   width="360"
                   height="280"

@@ -1,8 +1,7 @@
-import { Header, Menu, Item, Icon } from "./styles";
-import { LogoStyle, LinkStyle } from "../Styles";
+import { Header, Menu, Item, Icon, LogoStyle, LinkStyle } from "./styles";
 import React from "react";
-import SearchIcon from "../../../assets/FiSearch.svg";
-import UserIcon from "../../../assets/FaRegUserCircle.svg";
+import {FiSearch as SearchIcon} from  "react-icons/fi";
+import {FaRegUserCircle as UserIcon} from "react-icons/fa";
 
 export const HeaderC = () => {
   return (
