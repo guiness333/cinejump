@@ -10,8 +10,6 @@ import {
 } from "../Rows/rowContainer";
 import { MovieContainer } from "./movieList";
 import { Favorito } from "../../Components/Favorito";
-import BlackHeart from "../../../assets/BsHeartFill-black.svg";
-import RedHeart from "../../../assets/BsHeartFill-red.svg";
 
 export const MovieRow = (props: any) => {
   return (
@@ -21,12 +19,12 @@ export const MovieRow = (props: any) => {
           <MovieContainer key={movie.id}>
             {props.favoritos && (
               <Favorito
-                src={
+                fill={
                   props.favoritos.find(
                     (el: any) => el.original_title === movie.original_title
                   )
-                    ? RedHeart
-                    : BlackHeart
+                    ? '#E83F5B'
+                    : '#000'
                 }
                 className="favorito"
                 onClick={() => props.click(movie)}
@@ -34,7 +32,7 @@ export const MovieRow = (props: any) => {
             )}
             {props.favorito && (
               <Favorito
-                src={RedHeart}
+                fill={"#E83F5B"}
                 className="favorito"
                 onClick={() => props.click(movie)}
               />
