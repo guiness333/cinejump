@@ -4,8 +4,8 @@ import {
   SignupForm,
   LoginDirect,
   SignupHeader
-} from "../Components";
-import { Container } from "../Components";
+} from "../../Components";
+import { Container } from "../../Components";
 function Main() {
   return (
     <Container width="100%">

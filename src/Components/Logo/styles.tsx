@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as Logo} from "../../../assets/Logo-red.svg";
+import {ReactComponent as Logo} from "../../assets/Logo-red.svg";
 
 export const LogoStyle = styled(Logo)`
   display: block;

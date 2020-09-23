@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import {ReactComponent as Logo} from '../../../assets/Logo-red.svg';
+import {ReactComponent as Logo} from '../../assets/Logo-red.svg';
+
+import {FiSearch} from  "react-icons/fi";
+import {FaRegUserCircle} from "react-icons/fa";
 export const Header = styled("div")`
     width: 100%;
     height: 100px;
@@ -14,8 +17,11 @@ export const Item = styled("li")`
     display: inline-block;
     color: white;
 `;
-export const Icon = styled("img")`
-    width: 40px;
+export const SearchIcon = styled(FiSearch)`
+    size: 0;
+`;
+export const UserIcon = styled(FaRegUserCircle)`
+    size: 0;
 `;
 export const LogoStyle = styled(Logo)`
   display: block;

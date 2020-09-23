@@ -1,7 +1,5 @@
-import { Header, Menu, Item, Icon, LogoStyle, LinkStyle } from "./styles";
+import { Header, Menu, Item, Icon, LogoStyle, LinkStyle, UserIcon, SearchIcon } from "./styles";
 import React from "react";
-import {FiSearch as SearchIcon} from  "react-icons/fi";
-import {FaRegUserCircle as UserIcon} from "react-icons/fa";
 
 export const HeaderC = () => {
   return (
@@ -24,12 +22,12 @@ export const HeaderC = () => {
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <Icon src={SearchIcon} />
+            <UserIcon fill="#FFF" size={20}/>
           </LinkStyle>
         </Item>
         <Item>
           <LinkStyle href="/">
-            <Icon src={UserIcon} />
+            <SearchIcon fill="#FFF" size={20}/>
           </LinkStyle>
         </Item>
       </Menu>

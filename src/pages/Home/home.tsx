@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, HeaderBackground, Footer, Header, CategoryText, MovieRow, TrailerRow, Highlight } from "../Components";
+import { Container, HeaderBackground, Footer, Header, CategoryText, MovieRow, TrailerRow, Highlight } from "../../Components";
 import api, { API_KEY, LANGUAGE } from "../../services/api";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ReactComponent as heart} from '../../assets/BsHeartFill-black.svg';
+import {ReactComponent as heart} from '../assets/BsHeartFill-black.svg';
 
 export const Favorito = styled(heart)`
     position: absolute;
