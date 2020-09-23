@@ -1,10 +1,10 @@
 import { Header, Menu, Item, Icon } from "./styles";
-import { LogoStyle, LinkStyle } from "../../Components/Styles";
+import { LogoStyle, LinkStyle } from "../Styles";
 import React from "react";
 import SearchIcon from "../../../assets/FiSearch.svg";
 import UserIcon from "../../../assets/FaRegUserCircle.svg";
 
-const HeaderC = () => {
+export const HeaderC = () => {
   return (
     <Header>
       <Menu>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "../Components/LoginContainer";
 import { HeaderBackground, Footer } from "../Components/Components";
 import HeaderC from "./Header/header";
+import {Header} from '../Components';
 import { CategoryText } from "./Text/highlightText";
 import { MovieRow, TrailerRow } from "./MovieList/movieRow";
 import api, { API_KEY, LANGUAGE } from "../../services/api";
@@ -97,7 +98,7 @@ const Home = () => {
   return (
     <Container width="100%">
       <HeaderBackground />
-      <HeaderC />
+      <Header />
       {topRatedMovies ? (
         <Highlight movies={topRatedMovies} />
       ) : (
