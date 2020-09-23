@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../Components/LoginContainer";
-import { HeaderBackground, Footer } from "../Components/Components";
-import HeaderC from "./Header/header";
-import { CategoryText } from "./Text/highlightText";
-import { MovieRow, TrailerRow } from "./MovieList/movieRow";
+import { Container, HeaderBackground, Footer, Header, CategoryText, MovieRow, TrailerRow, Highlight } from "../../Components";
 import api, { API_KEY, LANGUAGE } from "../../services/api";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
-import Highlight from "./Highlight/highlight";
 
 type API_MOVIE = {
   popularity: Number;
@@ -97,7 +92,7 @@ const Home = () => {
   return (
     <Container width="100%">
       <HeaderBackground />
-      <HeaderC />
+      <Header />
       {topRatedMovies ? (
         <Highlight movies={topRatedMovies} />
       ) : (

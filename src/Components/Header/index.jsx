@@ -1,11 +1,7 @@
-import { Header, Menu, Item, Icon } from "../HeaderNav/headerNav";
-import { LogoStyle, LinkStyle } from "../../Components/Styles";
+import { Header, Menu, Item, LogoStyle, LinkStyle, UserIcon, SearchIcon } from "./styles";
 import React from "react";
-import logoWhite from "../../../assets/Logo-white.svg";
-import SearchIcon from "../../../assets/FiSearch.svg";
-import UserIcon from "../../../assets/FaRegUserCircle.svg";
 
-const HeaderC = () => {
+export const HeaderC = () => {
   return (
     <Header>
       <Menu>
@@ -19,19 +15,19 @@ const HeaderC = () => {
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <LogoStyle src={logoWhite} />
+            <LogoStyle fill={"#FFF"} />
           </LinkStyle>
         </Item>
       </Menu>
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <Icon src={SearchIcon} />
+            <UserIcon fill="#FFF" size={20}/>
           </LinkStyle>
         </Item>
         <Item>
           <LinkStyle href="/">
-            <Icon src={UserIcon} />
+            <SearchIcon fill="#FFF" size={20}/>
           </LinkStyle>
         </Item>
       </Menu>
