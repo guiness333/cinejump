@@ -1,4 +1,4 @@
-import { Header, Menu, Item, Icon, LogoStyle, LinkStyle, UserIcon, SearchIcon } from "./styles";
+import { Header, Menu, Item, LogoStyle, LinkStyle, UserIcon, SearchIcon } from "./styles";
 import React from "react";
 
 export const HeaderC = () => {
