@@ -21,7 +21,7 @@ export const MovieRow = (props: any) => {
               <Favorito
                 fill={
                   props.favoritos.find(
-                    (el: any) => el.original_title === movie.original_title
+                    (el: any) => el.originalTitle === movie.originalTitle
                   )
                     ? '#E83F5B'
                     : '#000'
@@ -39,7 +39,7 @@ export const MovieRow = (props: any) => {
             )}
             <MovieItem
               src={String(
-                "https://image.tmdb.org/t/p/w1280/" + movie.poster_path
+                "https://image.tmdb.org/t/p/w1280/" + movie.poster
               )}
               width={140}
               height={180}
