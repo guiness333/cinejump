@@ -77,9 +77,12 @@ const Home = () => {
   };
   const getTrailers = async (id: any) => {
     let movies: any;
+
+    console.log(id)
     movies = await api.get(
       `/movie/${id}/videos?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
     );
+    console.log(movies.data);
     return movies.data.results[0].key;
   };
   const HighlightMovies = async () => {

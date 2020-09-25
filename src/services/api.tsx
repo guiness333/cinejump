@@ -4,5 +4,5 @@ const api = axios.create({
 })
 export const API_KEY = '4eb0f1abd8808fce853779d359d25c07'
 export const REGION = 'BR'
-export const LANGUAGE = 'pt-BR'
+export const LANGUAGE = 'en-US'
 export default api
