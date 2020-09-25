@@ -12,7 +12,6 @@ import { MovieContainer } from "./movieList";
 import { Favorito } from "../Favorito";
 
 export const MovieRow = (props: any) => {
-  console.log(props)
   return (
     <MoviesRow scroll={"none"}>
       {props.movies.map((movie: any) => {

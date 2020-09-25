@@ -9,27 +9,10 @@ import {
   TrailerRow,
   Highlight,
 } from "../../Components";
-import api, { API_KEY, LANGUAGE } from "../../services/api";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
-import {Popular, NowPlaying, TopRated} from '../../domains/Movie/api';
+import {Popular, NowPlaying, TopRated, Trailers} from '../../domains/Movie/api';
 import MovieResponse from '../../domains/Movie/api/Popular/Response';
-
-type API_MOVIE = {
-  popularity: Number;
-  vote_count: Number;
-  video: Boolean;
-  poster_path: String;
-  id: Number;
-  adult: Boolean;
-  backdrop_path: String;
-  original_language: String;
-  original_title: String;
-  genre_ids: [Array<Number>];
-  title: String;
-  vote_average: Number;
-  overview: String;
-  release_date: String;
-};
+ 
 const Home = () => {
   const [favoritosMovies, setFavoritosMovies] = useState([] as MovieResponse[]);
 
@@ -70,27 +53,15 @@ const Home = () => {
     setPopularMovies(response);
   }, []);
 
-  const getTrailers = useCallback(async (id: any) => {
-    let movies: any;
-    movies = await api.get(
-      `/movie/${id}/videos?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
-    );
-
-    return movies.data.results[0].key;
-  }, []);
-
   const NowMovies = useCallback(async () => {
     const response = await NowPlaying();
-
     setNowMovies(response);
-
     let a, b, c;
-    a = await getTrailers(response[0].id);
-    b = await getTrailers(response[1].id);
-    c = await getTrailers(response[2].id);
+    a = await Trailers(response[0].id);
+    b = await Trailers(response[1].id);
+    c = await Trailers(response[2].id);
     setVideoKey([...videosKeys, a, b, c]);
-
-  }, [videosKeys, getTrailers]);
+  }, [videosKeys]);
 
   const HighlightMovies = useCallback(async () => {
     const response = await TopRated();
@@ -150,7 +121,7 @@ const Home = () => {
         </CategoryText>
       )}
       <CategoryText color={"#E83F5B"}>Favoritos</CategoryText>
-      {favoritosMovies ? (
+      {favoritosMovies.length > 0 ? (
         <MovieRow
           movies={favoritosMovies}
           click={handleClick}
@@ -158,7 +129,7 @@ const Home = () => {
         />
       ) : (
         <CategoryText>
-          <img src={Spinner} alt="Carregando" />
+          Nenhum filme adicionado aos favoritos.
         </CategoryText>
       )}
 
