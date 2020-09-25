@@ -1,7 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Container, HeaderBackground, Footer, Header, CategoryText, MovieRow, TrailerRow, Highlight } from "../../Components";
+import React, { useEffect, useState, useCallback } from "react";
+import {
+  Container,
+  HeaderBackground,
+  Footer,
+  Header,
+  CategoryText,
+  MovieRow,
+  TrailerRow,
+  Highlight,
+} from "../../Components";
 import api, { API_KEY, LANGUAGE } from "../../services/api";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
+import {Popular, NowPlaying, TopRated} from '../../domains/Movie/api';
+import MovieResponse from '../../domains/Movie/api/Popular/Response';
 
 type API_MOVIE = {
   popularity: Number;
@@ -20,25 +31,22 @@ type API_MOVIE = {
   release_date: String;
 };
 const Home = () => {
-  const [favoritosMovies, setFavoritosMovies] = useState(Array<API_MOVIE>());
-  const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
-  const [nowMovies, setNowMovies] = useState(Array<API_MOVIE>());
-  const [topRatedMovies, setTopRatedMovies] = useState();
+  const [favoritosMovies, setFavoritosMovies] = useState([] as MovieResponse[]);
+
+  // const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
+  const [popularMovies, setPopularMovies] = useState([] as MovieResponse[]);
+
+  const [nowMovies, setNowMovies] = useState([] as MovieResponse[]);
+
+  const [topRatedMovies, setTopRatedMovies] = useState([] as MovieResponse[]);
+
   const [videosKeys, setVideoKey] = useState(Array<String>());
-  useEffect(() => {
-    PopularMovies();
-    NowMovies();
-    HighlightMovies();
-    let fav = localStorage.getItem("favoritos");
-    if (fav) {
-      setFavoritosMovies(JSON.parse(fav));
-    }
-  }, []);
-  const handleClick = (movie: API_MOVIE) => {
+
+
+  const handleClick = (movie: MovieResponse) => {
     if (
-      !favoritosMovies.find((el) => el.original_title === movie.original_title)
+      !favoritosMovies.find((el) => el.originalTitle === movie.originalTitle)
     ) {
-      console.log(favoritosMovies);
       setFavoritosMovies([...favoritosMovies, movie]);
       localStorage.setItem(
         "favoritos",
@@ -46,7 +54,7 @@ const Home = () => {
       );
     } else {
       let a = favoritosMovies.find(
-        (el) => el.original_title === movie.original_title
+        (el) => el.originalTitle === movie.originalTitle
       );
       let fav2 = favoritosMovies;
       if (a) {
@@ -56,54 +64,61 @@ const Home = () => {
       localStorage.setItem("favoritos", JSON.stringify([...fav2]));
     }
   };
-  const PopularMovies = async () => {
-    let movies: any;
-    movies = await api.get(
-      `/movie/popular?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
-    );
-    setPopularMovies(movies.data.results);
-  };
-  const NowMovies = async () => {
-    let movies: any;
-    movies = await api.get(
-      `/movie/now_playing?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
-    );
-    setNowMovies(movies.data.results);
-    let a,b,c;
-    a = await getTrailers(movies.data.results[0].id);
-    b = await getTrailers(movies.data.results[1].id);
-    c = await getTrailers(movies.data.results[2].id);
-    setVideoKey([...videosKeys, a,b,c]);
-  };
-  const getTrailers = async (id: any) => {
-    let movies: any;
 
-    console.log(id)
+  const PopularMovies = useCallback(async () => {
+    const response = await Popular();
+    setPopularMovies(response);
+  }, []);
+
+  const getTrailers = useCallback(async (id: any) => {
+    let movies: any;
     movies = await api.get(
       `/movie/${id}/videos?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
     );
-    console.log(movies.data);
+
     return movies.data.results[0].key;
-  };
-  const HighlightMovies = async () => {
-    let movies: any;
-    movies = await api.get(
-      `/movie/top_rated?api_key=${API_KEY}&language=${LANGUAGE}&page=1`
-    );
-    setTopRatedMovies(movies.data.results);
-  };
+  }, []);
+
+  const NowMovies = useCallback(async () => {
+    const response = await NowPlaying();
+
+    setNowMovies(response);
+
+    let a, b, c;
+    a = await getTrailers(response[0].id);
+    b = await getTrailers(response[1].id);
+    c = await getTrailers(response[2].id);
+    setVideoKey([...videosKeys, a, b, c]);
+
+  }, [videosKeys, getTrailers]);
+
+  const HighlightMovies = useCallback(async () => {
+    const response = await TopRated();
+    setTopRatedMovies(response);
+  },[]);
+
+  useEffect(() => {
+    HighlightMovies();
+    PopularMovies();
+    NowMovies();
+    let fav = localStorage.getItem("favoritos");
+    if (fav) {
+      setFavoritosMovies(JSON.parse(fav));
+    }
+  }, []);
+
   return (
     <Container width="100%">
       <HeaderBackground />
       <Header />
-      {topRatedMovies ? (
+      {topRatedMovies.length > 0 ? (
         <Highlight movies={topRatedMovies} />
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
         </CategoryText>
       )}
-      <CategoryText color={'#E83F5B'}>Populares</CategoryText>
+      <CategoryText color={"#E83F5B"}>Populares</CategoryText>
       {popularMovies ? (
         <MovieRow
           movies={popularMovies}
@@ -115,7 +130,7 @@ const Home = () => {
           <img src={Spinner} alt="Carregando" />
         </CategoryText>
       )}
-      <CategoryText color={'#E83F5B'}>Em exibição</CategoryText>
+      <CategoryText color={"#E83F5B"}>Em exibição</CategoryText>
       {nowMovies ? (
         <MovieRow
           movies={nowMovies}
@@ -128,13 +143,13 @@ const Home = () => {
         </CategoryText>
       )}
       {videosKeys ? (
-        <TrailerRow trailers={videosKeys}/>
+        <TrailerRow trailers={videosKeys} />
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
         </CategoryText>
       )}
-      <CategoryText color={'#E83F5B'}>Favoritos</CategoryText>
+      <CategoryText color={"#E83F5B"}>Favoritos</CategoryText>
       {favoritosMovies ? (
         <MovieRow
           movies={favoritosMovies}

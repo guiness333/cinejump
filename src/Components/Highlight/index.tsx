@@ -14,10 +14,10 @@ export const Highlight = (props: any) => {
         <TitleText>{props.movies[0].title}</TitleText>
         <DiscriptionText>{props.movies[0].overview}</DiscriptionText>
       </TextContainter>
-      <MovieItem src={tmdb+props.movies[0].backdrop_path} width={718} height={328} align={"inline"} />
+      <MovieItem src={tmdb+props.movies[0].backdrop} width={718} height={328} align={"inline"} />
       <MoviesColumn>
-        <MovieItem src={tmdb+props.movies[1].backdrop_path} width={270} height={159} align={"block"} />
-        <MovieItem src={tmdb+props.movies[2].backdrop_path} width={270} height={159} align={"block"} />
+        <MovieItem src={tmdb+props.movies[1].backdrop} width={270} height={159} align={"block"} />
+        <MovieItem src={tmdb+props.movies[2].backdrop} width={270} height={159} align={"block"} />
       </MoviesColumn>
     </MoviesRow>
   );
