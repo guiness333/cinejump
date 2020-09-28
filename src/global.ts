@@ -4,12 +4,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     outline: 0;
-    box-sizing: border-box}
+    box-sizing: border-box;
+    font-family: 'Ubuntu', -apple-system, system-ui, sans-serif;}
 body {
     min-height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     background: #fafafa;
     color: #333;
+    
 }
 ::-webkit-scrollbar {
     width: 12px;

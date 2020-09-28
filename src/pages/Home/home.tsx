@@ -10,9 +10,14 @@ import {
   Highlight,
 } from "../../Components";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
-import {Popular, NowPlaying, TopRated, Trailers} from '../../domains/Movie/api';
-import MovieResponse from '../../domains/Movie/api/Popular/Response';
- 
+import {
+  Popular,
+  NowPlaying,
+  TopRated,
+  Trailers,
+} from "../../domains/Movie/api";
+import MovieResponse from "../../domains/Movie/api/Popular/Response";
+
 const Home = () => {
   const [favoritosMovies, setFavoritosMovies] = useState([] as MovieResponse[]);
 
@@ -24,7 +29,6 @@ const Home = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([] as MovieResponse[]);
 
   const [videosKeys, setVideoKey] = useState(Array<String>());
-
 
   const handleClick = (movie: MovieResponse) => {
     if (
@@ -66,7 +70,7 @@ const Home = () => {
   const HighlightMovies = useCallback(async () => {
     const response = await TopRated();
     setTopRatedMovies(response);
-  },[]);
+  }, []);
 
   useEffect(() => {
     HighlightMovies();
@@ -76,7 +80,8 @@ const Home = () => {
     if (fav) {
       setFavoritosMovies(JSON.parse(fav));
     }
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return (
     <Container width="100%">
@@ -128,9 +133,7 @@ const Home = () => {
           favorito={true}
         />
       ) : (
-        <CategoryText>
-          Nenhum filme adicionado aos favoritos.
-        </CategoryText>
+        <CategoryText>Nenhum filme adicionado aos favoritos.</CategoryText>
       )}
 
       <Footer />

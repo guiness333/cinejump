@@ -62,7 +62,7 @@ export const TrailerRow = (props: any) => {
                 <Frame title={trailer}
                   width="360"
                   height="280"
-                  src={`https://www.youtube.com/embed/${trailer}`}
+                  src={`https://www.youtube-nocookie.com/embed/${trailer}`}
                 ></Frame>
               </Trailers>
             );
