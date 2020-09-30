@@ -6,9 +6,10 @@ Site em React com listagem de filmes da api [The Movie DB](https://developers.th
 Construir um site em React com um design de acordo com o template desenvolvido no [Figma](https://www.figma.com/)*[2]* como mostra a *Figura 1*, conexão com a API [The Movie DB](https://developers.themoviedb.org)*[1]*, opção para adicionar filme aos favoritos e salvar no localStorage. Utilizando como ferramentas o [TypeScript](https://www.typescriptlang.org/docs/)*[3]*,  [ReactJS](https://pt-br.reactjs.org/docs/getting-started.html)*[4]*
 *, [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)*[5]* e [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)*[6]*
 
-![template](https://i.imgur.com/LjdecIJ.png)  
+![template-1/2](https://i.imgur.com/LjdecIJ.png)  
 *Figura 1 - Template Figma*
-
+![tamplate-2/2](https://i.imgur.com/pKUwK2p.png)
+*Figura 2 - Template Figma*
 ## 3. Desenvolvimento
 ### 3.1 HTML e CSS
 O [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)*[5]* e [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)*[6]*.
@@ -21,24 +22,25 @@ O ReactJS é um [framework](https://tableless.github.io/iniciantes/manual/js/o-q
 ## 4. Funcionamento
 Figura 2 mostra o resultado do desenvolvimento do site, com toda suas funcionalidades.
 
-![Figura 2](https://i.imgur.com/xKNbTwP.png)
-*Figura 2 - Resultado*
+![Figura 3-1/2](https://i.imgur.com/JT3cgyw.png)
+*Figura 3 - Resultado*
+![Figura 4-2/2](https://i.imgur.com/XDiEJUa.png)
+*Figura 4 - Resultado*  
 
-A *Figura 3* demonstra a funcionalidade de adição aos favoritos.
-
-![Figura 3](https://i.imgur.com/nbBinyT.gif)  
-*Figura 3 - Funcionamento da opção de adicionar aos favoritos.*
+A *Figura 5* demonstra a funcionalidade de adição aos favoritos.
+![Figura 5-](https://i.imgur.com/Iq0AAU5.gif)
+*Figura 5 - Funcionamento da opção de adicionar aos favoritos.*
 ## 5. Instalando e Executando
 ### 5.1 Introdução
 - Clone esse repositório:  
-  `git clone git@github.com:guiness333/webjump-cinema.git`
+  `git clone git@github.com:guiness333/cinejump.git`
 ### 5.2 Cinema (Frontend)
 - Acesse o diretório:  
-  `cd webjump-cinema`
+  `cd cinejump`
 - Instale as dependencias:  
   `yarn install` ou `yarn`
 - Executar:  
-  `yarn dev`
+  `yarn start`
 - Acesse (Browser):  
   `localhost:8080`
 
