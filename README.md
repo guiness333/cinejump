@@ -7,9 +7,9 @@ Construir um site em React com um design de acordo com o template desenvolvido n
 *, [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)*[5]* e [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)*[6]*
 
 ![template-1/2](https://i.imgur.com/LjdecIJ.png)  
-*Figura 1 - Template Figma*
-![tamplate-2/2](https://i.imgur.com/pKUwK2p.png)
-*Figura 2 - Template Figma*
+*Figura 1 - Template Figma*  
+![tamplate-2/2](https://i.imgur.com/pKUwK2p.png)  
+*Figura 2 - Template Figma*  
 ## 3. Desenvolvimento
 ### 3.1 HTML e CSS
 O [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)*[5]* e [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)*[6]*.
@@ -22,13 +22,13 @@ O ReactJS é um [framework](https://tableless.github.io/iniciantes/manual/js/o-q
 ## 4. Funcionamento
 Figura 2 mostra o resultado do desenvolvimento do site, com toda suas funcionalidades.
 
-![Figura 3-1/2](https://i.imgur.com/JT3cgyw.png)
+![Figura 3-1/2](https://i.imgur.com/JT3cgyw.png)  
 *Figura 3 - Resultado*
-![Figura 4-2/2](https://i.imgur.com/XDiEJUa.png)
+![Figura 4-2/2](https://i.imgur.com/XDiEJUa.png)  
 *Figura 4 - Resultado*  
 
 A *Figura 5* demonstra a funcionalidade de adição aos favoritos.
-![Figura 5-](https://i.imgur.com/Iq0AAU5.gif)
+![Figura 5-](https://i.imgur.com/Iq0AAU5.gif)    
 *Figura 5 - Funcionamento da opção de adicionar aos favoritos.*
 ## 5. Instalando e Executando
 ### 5.1 Introdução
@@ -46,7 +46,9 @@ A *Figura 5* demonstra a funcionalidade de adição aos favoritos.
 
 
 ## 6. Dificuldades encontradas
-A principal dificuldade encontrada foi a organização dos componentes, sendo parte importante da construção e manutenção do projeto. Além disso a utilização do useEffect não chegou a ser uma dificuldade, mas é uma parte complexa que vale a pena tomar cuidado ao desenvolver em React.
+A principal dificuldade encontrada foi a organização dos componentes, sendo parte importante da construção e manutenção do projeto. Há também a utilização da API de trailers, que gerou certo trabalho, já que depende de uma informação(id do filme) que vem de outra api, e a página carrega ambos ao mesmo tempo, causando alguns resultados imprevistos, porém utilizando `await` e `async` corretamente foi possivel desenvolver o resultado esperado.
+Além disso a utilização do useEffect não chegou a ser uma dificuldade, mas é uma parte complexa que vale a pena tomar cuidado ao desenvolver em React.
+
 
 ## 7. Conclusão
 React torna a criação do site muito mais direta, focando na construção em si e não tanto na parte de renderização, já que o react cuida de boa parte disso. Além disso o typescript adiciona uma camada proteção ao código, ao especificar os tipos que um camponente vai receber, evitando a exibição de dados incorretos.
