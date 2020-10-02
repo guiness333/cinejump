@@ -47,7 +47,7 @@ A *Figura 5* demonstra a funcionalidade de adição aos favoritos.
 
 ## 6. Dificuldades encontradas
 A principal dificuldade encontrada foi a organização dos componentes, sendo parte importante da construção e manutenção do projeto. Há também a utilização da API de trailers, que gerou certo trabalho, já que depende de uma informação(id do filme) que vem de outra api, e a página carrega ambos ao mesmo tempo, causando alguns resultados imprevistos, porém utilizando `await` e `async` corretamente foi possivel desenvolver o resultado esperado.
-Além disso a utilização do useEffect não chegou a ser uma dificuldade, mas é uma parte complexa que vale a pena tomar cuidado ao desenvolver em React.
+Além disso a utilização do useEffect não chegou a ser uma dificuldade, mas é uma parte complexa que vale a pena tomar cuidado ao desenvolver em React. 
 
 
 ## 7. Conclusão
