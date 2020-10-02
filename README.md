@@ -46,17 +46,16 @@ A *Figura 5* demonstra a funcionalidade de adição aos favoritos.
 
 
 ## 6. Dificuldades encontradas
-A principal dificuldade encontrada foi trabalhar com o eventListeners em objetos dinamicos, no caso o catálogo de filmes nos favoritos. Encontrei um pouco de dificuldade no carregamento do HTML, porém com a documentação [mozilla.org](https://developer.mozilla.org/pt-BR/docs/Web/Events/DOMContentLoaded) consegui entender melhor o funcionamento dos estados do html
-`document.readyState` e `DOMContentLoaded`
+A principal dificuldade encontrada foi a organização dos componentes, sendo parte importante da construção e manutenção do projeto. Além disso a utilização do useEffect não chegou a ser uma dificuldade, mas é uma parte complexa que vale a pena tomar cuidado ao desenvolver em React.
 
 ## 7. Conclusão
-JavaScript é uma linguagem poderosa que permite a criação de sites complexos e dinamicos de forma simples mesmo sem a necessidade de um [frameworks](https://tableless.github.io/iniciantes/manual/js/o-que-framework.html)*[4]*
+React torna a criação do site muito mais direta, focando na construção em si e não tanto na parte de renderização, já que o react cuida de boa parte disso. Além disso o typescript adiciona uma camada proteção ao código, ao especificar os tipos que um camponente vai receber, evitando a exibição de dados incorretos.
 
 ## 8. Referências Bibliográficas
 
 1. The Movie DB - Disponível em https://developers.themoviedb.org - Acesso em 08/07/2020;
 2. Figma - Disponível em https://www.figma.com/ - Acesso em 08/07/2020;
-3. JavaScript - Disponível em https://developer.mozilla.org/pt-BR/docs/Web/JavaScript - Acesso em 08/07/2020;
+3. TypeScript - Disponível em https://www.typescriptlang.org/docs/ - Acesso em 29/09/2020;
 4. Frameworks - Disponível em https://tableless.github.io/iniciantes/manual/js/o-que-framework.html - Acesso em 08/07/2020;
 5. HTML - Disponível em https://developer.mozilla.org/pt-BR/docs/Web/HTML - Acesso em 08/07/2020;
 6. CSS - Disponível em https://developer.mozilla.org/pt-BR/docs/Web/CSS - Acesso em 08/07/2020;
