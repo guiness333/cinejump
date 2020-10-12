@@ -1,4 +1,12 @@
-import { Header, Menu, Item, LogoStyle, LinkStyle, UserIcon, SearchIcon } from "./styles";
+import {
+  Header,
+  Menu,
+  Item,
+  LogoStyle,
+  LinkStyle,
+  UserIcon,
+  SearchIcon,
+} from "./styles";
 import React from "react";
 
 export const HeaderC = () => {
@@ -22,12 +30,12 @@ export const HeaderC = () => {
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <UserIcon fill="#FFF" size={20}/>
+            <SearchIcon fill="#FFF" size={20} />
           </LinkStyle>
         </Item>
         <Item>
           <LinkStyle href="/">
-            <SearchIcon fill="#FFF" size={20}/>
+            <UserIcon fill="#FFF" size={20} />
           </LinkStyle>
         </Item>
       </Menu>
