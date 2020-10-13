@@ -30,7 +30,7 @@ export const HeaderC = () => {
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <SearchIcon fill="#FFF" size={20} />
+            <SearchIcon size={20} />
           </LinkStyle>
         </Item>
         <Item>
