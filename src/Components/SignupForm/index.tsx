@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import hash from '../../utils';
+import translate, { emptyName, emptyEmail, emptyPassword } from "../../utils";
 import {
   FormStyle,
   FiUserS,
@@ -8,32 +8,35 @@ import {
   ButtonStyle,
   InputFormStyle,
 } from "./styles";
-import Response from "./dtos/Response";
-import loginAPI from "../../services/loginAPI";
 import { Error } from "../Error";
+import { Register } from "../../domains/User_CRUD/Register";
 import { useHistory } from "react-router-dom";
 
 export const SignupForm = () => {
-  let history = useHistory();
   const [username, setUsername] = useState(String);
   const [email, setEmail] = useState(String);
   const [password, setPassword] = useState(String);
   const [error, setError] = useState(String);
-
+  let history = useHistory();
+  
   async function register(event: any) {
     event.preventDefault();
-    try {
-      let response: Response = await loginAPI.post(`/users`, {
-        name: username,
-        email: email,
-        password: password,
-      });
-      if(response){
-        localStorage.setItem("user", JSON.stringify(response.data));
-        history.push("/home");
+    if (!username) {
+      setError(translate(emptyName));
+    } else if (!email) {
+      setError(translate(emptyEmail));
+    } else if (!password) {
+      setError(translate(emptyPassword));
+    } else {
+      try {
+        let response = await Register(username, email, password);
+        if (response) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+          history.push("/home");
+        }
+      } catch (err) {
+        setError(translate(err.response.data.message) || "");
       }
-    } catch (err) {
-      setError('Verifique se os dados estão preenchidos corretamente!')
     }
   }
 
