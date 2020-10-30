@@ -9,7 +9,7 @@ import {
   InputFormStyle,
 } from "./styles";
 import { Error } from "../Error";
-import { Register } from "../../domains/User_CRUD/Register";
+import { Register } from "../../domains/User_CRUD";
 import { useHistory } from "react-router-dom";
 
 export const SignupForm = () => {
@@ -32,7 +32,7 @@ export const SignupForm = () => {
         let response = await Register(username, email, password);
         if (response) {
           localStorage.setItem("user", JSON.stringify(response.data));
-          history.push("/home");
+          history.push("/");
         }
       } catch (err) {
         setError(translate(err.response.data.message) || "");
