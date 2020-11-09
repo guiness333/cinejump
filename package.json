@@ -12,6 +12,7 @@
     "@types/react-router-dom": "^5.1.5",
     "aws-sdk": "^2.779.0",
     "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
@@ -22,6 +23,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "sh -ac '. ./.env.development; react-scripts start'",
+    "start:prd": "sh -ac '. ./.env; react-scripts start'",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

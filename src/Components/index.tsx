@@ -11,4 +11,4 @@ export {HeaderC as Header} from './Header';
 export {Highlight} from './Highlight';
 export {MovieRow, TrailerRow} from './MovieList';
 export {Container} from './Containers/LoginContainer';
-export {CategoryText, TextContainter, TitleText, DiscriptionText} from './Text';
+export {CategoryText, TextContainter, TitleText, DiscriptionText, ProductionText} from './Text';
