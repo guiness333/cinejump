@@ -13,6 +13,8 @@ export const ProductionText = styled("h1")`
   position: absolute;
   overflow: hidden;
   width: 100%;
+  text-align: center;
+  font-size: 14px;
 `
 export const TitleText = styled("h1")`
   color: white;

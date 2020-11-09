@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Routes />
-      {!process.env.REACT_APP_IS_PRODUCTION && 
+      {process.env.REACT_APP_IS_PRODUCTION === 'false' && 
       <ProductionText>Ambiente de Desenvolvimento</ProductionText>
       }
     </div>
