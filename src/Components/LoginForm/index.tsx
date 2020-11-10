@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { LoginAuth } from "../../domains/User_CRUD";
+import { LoginAuth } from "../../domains/Cinejump";
 import {
   FormStyle,
   FiMailS,
@@ -21,8 +21,8 @@ export const LoginForm = () => {
     event.preventDefault();
     try {
       let response = await LoginAuth(email, password);
-      if (response.data.token) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+      if (response.token) {
+        localStorage.setItem("user", JSON.stringify(response));
         console.log('Logou')
         history.push("/home");
         

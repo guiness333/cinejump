@@ -9,7 +9,7 @@ import {
   InputFormStyle,
 } from "./styles";
 import { Error } from "../Error";
-import { Register } from "../../domains/User_CRUD";
+import { Register } from "../../domains/Cinejump";
 import { useHistory } from "react-router-dom";
 
 export const SignupForm = () => {

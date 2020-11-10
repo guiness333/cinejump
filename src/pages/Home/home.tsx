@@ -16,6 +16,8 @@ import {
   TopRated,
   Trailers,
 } from "../../domains/Movie/api";
+import api from '../../services/loginAPI';
+import {AddFavorite} from '../../domains/Cinejump';
 import MovieResponse from "../../domains/Movie/api/Popular/Response";
 
 const Home = () => {
@@ -30,15 +32,22 @@ const Home = () => {
 
   const [videosKeys, setVideoKey] = useState(Array<String>());
 
-  const handleClick = (movie: MovieResponse) => {
+  const handleClick = async (movie: MovieResponse) => {
     if (
       !favoritosMovies.find((el) => el.originalTitle === movie.originalTitle)
     ) {
+      
       setFavoritosMovies([...favoritosMovies, movie]);
       localStorage.setItem(
         "favoritos",
         JSON.stringify([...favoritosMovies, movie])
       );
+      let user = JSON.parse(localStorage.getItem('user') || '');
+      if(user)
+        api.defaults.headers.authorization = `Bearer ${user.token}`;
+      
+      let response = await AddFavorite(movie.id.toString(), '1');
+      console.log(response);
     } else {
       let a = favoritosMovies.find(
         (el) => el.originalTitle === movie.originalTitle

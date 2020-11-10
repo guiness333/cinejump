@@ -1,12 +1,12 @@
 import loginAPI from "../../../services/loginAPI";
-//import Response from './ResponseLogin';
+import Response from './ResponseLogin';
 export const LoginAuth = async (
   email: String,
   password: String
-): Promise<any> => {
+): Promise<Response> => {
   let response = loginAPI.post(`/auth`, {
     email: email,
     password: password,
   });
-  return response;
+  return (await response).data;
 };
