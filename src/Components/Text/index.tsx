@@ -8,6 +8,14 @@ export const TextContainter = styled("div")`
   top: 303px;
   max-height: 150px;
 `;
+export const ProductionText = styled("h1")`
+  background-color: red;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+`
 export const TitleText = styled("h1")`
   color: white;
   font-family: "Ubuntu light";

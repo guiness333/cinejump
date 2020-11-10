@@ -1,6 +1,6 @@
 import axios from 'axios';
 const loginAPI = axios.create({
-  baseURL: 'https://cinejump-api.herokuapp.com'
+  baseURL: process.env.REACT_APP_CINEJUMP_URL
 });
 
 

@@ -1,16 +1,12 @@
 import axios from 'axios';
 const tmdb = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/'
+  baseURL: process.env.REACT_APP_TMDB_URL
 });
-export const API_KEY = '4eb0f1abd8808fce853779d359d25c07';
-export const REGION = 'US';
-export const LANGUAGE = 'en-US';
 tmdb.interceptors.request.use(config => {
   const params = config.params || {};
-
-  params.api_key = '4eb0f1abd8808fce853779d359d25c07';
-  params.language = 'en-US';
-  params.region = 'US';
+  params.api_key = process.env.REACT_APP_TMDB_API_KEY;
+  params.language = process.env.REACT_APP_TMDB_LANGUAGE;
+  params.region = process.env.REACT_APP_TMDB_REGION;
 
   return { ...config, params };
 });
