@@ -12,3 +12,4 @@ export {Highlight} from './Highlight';
 export {MovieRow, TrailerRow} from './MovieList';
 export {Container} from './Containers/LoginContainer';
 export {CategoryText, TextContainter, TitleText, DiscriptionText, ProductionText} from './Text';
+export {DevelopmentLabel} from './DevelopmentLabel';
