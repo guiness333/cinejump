@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { LoginAuth } from "../../domains/User_CRUD";
 import {
   FormStyle,
   FiMailS,
@@ -8,29 +7,28 @@ import {
   InputFormStyle,
   ButtonStyle,
 } from "./styles";
+import { useAuth } from '../../domains/Auth/Hooks';
 import translate from "../../utils";
 import { Error } from "../Error";
 
-export const LoginForm = () => {
+export const LoginForm: React.FC = () => {
   let history = useHistory();
   const [password, setPassword] = useState(String);
   const [email, setEmail] = useState(String);
   const [error, setError] = useState(String);
+  const { loginAuth } = useAuth();
 
-  async function handleClick(event: any) {
+  const handleClick = useCallback(async (event: any) => {
     event.preventDefault();
     try {
-      let response = await LoginAuth(email, password);
-      if (response.data.token) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-        console.log('Logou')
-        history.push("/home");
-        
-      }
+      await loginAuth({email: email, password: password});
+
+      history.push("/home");
     } catch (err) {
-      setError(translate(err.response.data.message));
+      setError(translate(err));
+      console.log(err);
     }
-  }
+  }, [loginAuth, email, password, history]);
   return (
     <FormStyle onSubmit={handleClick}>
       {error && <Error text={error} />}
