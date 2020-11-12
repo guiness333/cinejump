@@ -1,10 +1,11 @@
 export const isAuthenticated = () => {
   try {
-    let user = JSON.parse(localStorage.getItem("user") || "");
-    if (user.token) {
+    let token = localStorage.getItem('token') || "";
+    if(token) {
       return true;
     }
   } catch (err) {
+    console.log(err);
     return false;
   }
 };
