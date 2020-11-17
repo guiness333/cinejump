@@ -1,2 +1,2 @@
 export {Register} from './Register';
-export {AddFavorite} from './Favorite';
+export {AddFavorite, GetFavorites, GetFavoritesDetails, Favorites} from './Favorite';

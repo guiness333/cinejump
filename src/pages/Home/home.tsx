@@ -16,8 +16,7 @@ import {
   TopRated,
   Trailers,
 } from "../../domains/Movie/api";
-import api from '../../services/loginAPI';
-import {AddFavorite} from '../../domains/Cinejump';
+import {AddFavorite, Favorites} from '../../domains/Cinejump';
 import MovieResponse from "../../domains/Movie/api/Popular/Response";
 
 const Home = () => {
@@ -41,13 +40,8 @@ const Home = () => {
       localStorage.setItem(
         "favoritos",
         JSON.stringify([...favoritosMovies, movie])
-      );
-      let user = JSON.parse(localStorage.getItem('user') || '');
-      if(user)
-        api.defaults.headers.authorization = `Bearer ${user.token}`;
-      
-      let response = await AddFavorite(movie.id.toString(), '1');
-      console.log(response);
+      );   
+      await AddFavorite(movie.id.toString(), '1');
     } else {
       let a = favoritosMovies.find(
         (el) => el.originalTitle === movie.originalTitle
@@ -56,8 +50,10 @@ const Home = () => {
       if (a) {
         fav2.splice(favoritosMovies.indexOf(a), 1);
       }
+      await AddFavorite(movie.id.toString(), '1');
       setFavoritosMovies([...fav2]);
       localStorage.setItem("favoritos", JSON.stringify([...fav2]));
+      
     }
   };
 
@@ -80,11 +76,17 @@ const Home = () => {
     const response = await TopRated();
     setTopRatedMovies(response);
   }, []);
+  const GetFavorites = useCallback(async () => {
+    const response = await Favorites();
+    console.log(response);
+
+  }, [])
 
   useEffect(() => {
     HighlightMovies();
     PopularMovies();
     NowMovies();
+    GetFavorites();
     let fav = localStorage.getItem("favoritos");
     if (fav) {
       setFavoritosMovies(JSON.parse(fav));
