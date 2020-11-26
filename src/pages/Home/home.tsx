@@ -16,12 +16,11 @@ import {
   TopRated,
   Trailers,
 } from "../../domains/Movie/api";
-import api from '../../services/loginAPI';
-import {AddFavorite} from '../../domains/Cinejump';
+import {AddFavorite, Favorites} from '../../domains/Cinejump';
 import MovieResponse from "../../domains/Movie/api/Popular/Response";
-
+import FavoriteResponse from '../../domains/Cinejump/Favorite/Response';
 const Home = () => {
-  const [favoritosMovies, setFavoritosMovies] = useState([] as MovieResponse[]);
+  const [favoritosMovies, setFavoritosMovies] = useState([] as FavoriteResponse[]);
 
   // const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
   const [popularMovies, setPopularMovies] = useState([] as MovieResponse[]);
@@ -32,32 +31,36 @@ const Home = () => {
 
   const [videosKeys, setVideoKey] = useState(Array<String>());
 
-  const handleClick = async (movie: MovieResponse) => {
+  const handleClick = async (movie: FavoriteResponse) => {
     if (
       !favoritosMovies.find((el) => el.originalTitle === movie.originalTitle)
     ) {
-      
-      setFavoritosMovies([...favoritosMovies, movie]);
-      localStorage.setItem(
-        "favoritos",
-        JSON.stringify([...favoritosMovies, movie])
-      );
-      let user = JSON.parse(localStorage.getItem('user') || '');
-      if(user)
-        api.defaults.headers.authorization = `Bearer ${user.token}`;
-      
-      let response = await AddFavorite(movie.id.toString(), '1');
-      console.log(response);
+      console.log(movie)
+      ///setFavoritosMovies([...favoritosMovies, movie]);
+
+      // localStorage.setItem(
+      //   "favoritos",
+      //   JSON.stringify([...favoritosMovies, movie])
+      // );
+      if(movie && movie.id){
+        await AddFavorite(movie.id.toString(), '1');
+        GetFavorites();
+      }
     } else {
       let a = favoritosMovies.find(
         (el) => el.originalTitle === movie.originalTitle
       );
-      let fav2 = favoritosMovies;
-      if (a) {
-        fav2.splice(favoritosMovies.indexOf(a), 1);
+      // let fav2 = favoritosMovies;
+      // if (a) {
+      //   fav2.splice(favoritosMovies.indexOf(a), 1);
+      // }
+      if (a && a.entity_id){
+        await AddFavorite(a.entity_id.toString(), '1');
+        GetFavorites();
       }
-      setFavoritosMovies([...fav2]);
-      localStorage.setItem("favoritos", JSON.stringify([...fav2]));
+      //FavoritosMovies([...fav2]);
+      //localStorage.setItem("favoritos", JSON.stringify([...fav2]));
+      
     }
   };
 
@@ -80,15 +83,21 @@ const Home = () => {
     const response = await TopRated();
     setTopRatedMovies(response);
   }, []);
+  const GetFavorites = useCallback(async () => {
+    const response = await Favorites();
+    console.log(response);
+    setFavoritosMovies(JSON.parse(JSON.stringify(response)));
+  }, [])
 
   useEffect(() => {
     HighlightMovies();
     PopularMovies();
     NowMovies();
-    let fav = localStorage.getItem("favoritos");
-    if (fav) {
-      setFavoritosMovies(JSON.parse(fav));
-    }
+    GetFavorites();
+    // let fav = localStorage.getItem("favoritos");
+    // if (fav) {
+    //   setFavoritosMovies(JSON.parse(fav));
+    // }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
