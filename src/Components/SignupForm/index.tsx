@@ -8,6 +8,8 @@ import {
   ButtonStyle,
   InputFormStyle,
 } from "./styles";
+import { Loading } from "../../Components";
+import Spinner from "../../assets/Spinner-0.4s-331px.svg";
 import { Error } from "../Error";
 import { Register } from "../../domains/Cinejump";
 import { useHistory } from "react-router-dom";
@@ -17,10 +19,12 @@ export const SignupForm = () => {
   const [email, setEmail] = useState(String);
   const [password, setPassword] = useState(String);
   const [error, setError] = useState(String);
+  const [loading, setLoading] = useState(false);
   let history = useHistory();
-  
+
   async function register(event: any) {
     event.preventDefault();
+    setLoading(true);
     if (!username) {
       setError(translate(emptyName));
     } else if (!email) {
@@ -35,9 +39,10 @@ export const SignupForm = () => {
           history.push("/");
         }
       } catch (err) {
-        setError(translate(err.response.data.message) || "");
+        setError(translate(err.response.data.error) || "");
       }
     }
+    setLoading(false);
   }
 
   return (
@@ -68,15 +73,22 @@ export const SignupForm = () => {
         placeholder="Senha"
         type="password"
       ></InputFormStyle>
-      <ButtonStyle
-        type="submit"
-        backgroundColor="#E83F5B"
-        textColor="white"
-        borderColor="#E83F5B"
-        margem={18}
-      >
-        Cadastrar
-      </ButtonStyle>
+      {!loading ? (
+        <ButtonStyle
+          type="submit"
+          backgroundColor="#E83F5B"
+          textColor="white"
+          borderColor="#E83F5B"
+          margem={18}
+        >
+          Cadastrar
+        </ButtonStyle>
+      ) : (
+          <>
+          <h4>Você será redirecionado para a tela de login em alguns segundos...</h4>
+          <Loading src={Spinner} alt="Carregando" />
+          </>
+      )}
     </FormStyle>
   );
 };
