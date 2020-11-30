@@ -42,21 +42,30 @@ const Home = () => {
       //   "favoritos",
       //   JSON.stringify([...favoritosMovies, movie])
       // );
+
       if(movie && movie.id){
+        setFavoritosMovies([...favoritosMovies, movie]);
         await AddFavorite(movie.id.toString(), '1');
-        GetFavorites();
+        //GetFavorites();
       }
     } else {
       let a = favoritosMovies.find(
         (el) => el.originalTitle === movie.originalTitle
       );
-      // let fav2 = favoritosMovies;
-      // if (a) {
-      //   fav2.splice(favoritosMovies.indexOf(a), 1);
-      // }
+      let fav2 = favoritosMovies;
+      if (a) {
+        fav2.splice(favoritosMovies.indexOf(a), 1);
+      }
+      console.log(a);
       if (a && a.entity_id){
+        setFavoritosMovies([...fav2]);
         await AddFavorite(a.entity_id.toString(), '1');
-        GetFavorites();
+        //GetFavorites();
+      }
+      if (a && a.id){
+        setFavoritosMovies([...fav2]);
+        await AddFavorite(a.id.toString(), '1');
+        //GetFavorites();
       }
       //FavoritosMovies([...fav2]);
       //localStorage.setItem("favoritos", JSON.stringify([...fav2]));
