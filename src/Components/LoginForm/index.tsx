@@ -7,28 +7,35 @@ import {
   InputFormStyle,
   ButtonStyle,
 } from "./styles";
-import { useAuth } from '../../domains/Auth/Hooks';
+import { Loading } from "../../Components";
+import { useAuth } from "../../domains/Auth/Hooks";
 import translate from "../../utils";
 import { Error } from "../Error";
+import Spinner from "../../assets/Spinner-0.4s-331px.svg";
 
 export const LoginForm: React.FC = () => {
   let history = useHistory();
   const [password, setPassword] = useState(String);
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState(String);
   const [error, setError] = useState(String);
   const { loginAuth } = useAuth();
 
-  const handleClick = useCallback(async (event: any) => {
-    event.preventDefault();
-    try {
-      await loginAuth({email: email, password: password});
+  const handleClick = useCallback(
+    async (event: any) => {
+      event.preventDefault();
+      setLoading(true);
+      try {
+        await loginAuth({ email: email, password: password });
 
-      history.push("/home");
-    } catch (err) {
-      setError(translate(err));
-      console.log(err);
-    }
-  }, [loginAuth, email, password, history]);
+        history.push("/home");
+      } catch (err) {
+        setError(translate(err.response.data.message));
+      }
+      setLoading(false);
+    },
+    [loginAuth, email, password, history]
+  );
   return (
     <FormStyle onSubmit={handleClick}>
       {error && <Error text={error} />}
@@ -46,15 +53,20 @@ export const LoginForm: React.FC = () => {
         placeholder="Senha"
         type="password"
       ></InputFormStyle>
-      <ButtonStyle
-        type="submit"
-        backgroundColor="#E83F5B"
-        textColor="white"
-        borderColor="#E83F5B"
-        margem={18}
-      >
-        ENTRAR
-      </ButtonStyle>
+      {!loading ? (
+        <ButtonStyle
+          type="submit"
+          backgroundColor="#E83F5B"
+          textColor="white"
+          borderColor="#E83F5B"
+          margem={18}
+        >
+          ENTRAR
+        </ButtonStyle>
+      ): 
+      (
+        <Loading src={Spinner} alt="Carregando" />
+      )}
     </FormStyle>
   );
 };

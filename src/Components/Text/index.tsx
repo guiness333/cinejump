@@ -33,6 +33,12 @@ export const CategoryText = styled("h1")<{color?: String}>`
     width: 1000px;
     
 `;
+export const Loading = styled("img")`
+  width: 200px;
+  height: 200px;
+  margin-left: 50px;
+  
+`
 export const DiscriptionText = styled("p")`
   color: white;
   margin-left: 20px;
