@@ -11,7 +11,7 @@ import React from "react";
 
 export const HeaderC = () => {
   return (
-    <Header>
+    <Header data-testid="Header">
       <Menu>
         <Item>
           <LinkStyle href="/">Filmes</LinkStyle>
@@ -23,19 +23,19 @@ export const HeaderC = () => {
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <LogoStyle fill={"#FFF"} />
+            <LogoStyle role="img" fill={"#FFF"} />
           </LinkStyle>
         </Item>
       </Menu>
       <Menu>
         <Item>
           <LinkStyle href="/">
-            <SearchIcon size={20} />
+            <SearchIcon role="img" size={20} />
           </LinkStyle>
         </Item>
         <Item>
           <LinkStyle href="/">
-            <UserIcon fill="#FFF" size={20} />
+            <UserIcon role="img" fill="#FFF" size={20} />
           </LinkStyle>
         </Item>
       </Menu>
