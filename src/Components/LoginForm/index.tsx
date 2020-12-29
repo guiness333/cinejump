@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import { Loading } from "../../Components";
 import { useAuth } from "../../domains/Auth/Hooks";
-import translate from "../../utils";
+import translate, { emptyEmail, emptyPassword } from "../../utils";
 import { Error } from "../Error";
 import Spinner from "../../assets/Spinner-0.4s-331px.svg";
 
@@ -25,12 +25,22 @@ export const LoginForm: React.FC = () => {
     async (event: any) => {
       event.preventDefault();
       setLoading(true);
-      try {
-        await loginAuth({ email: email, password: password });
+      if (!email) {
+        setError(translate(emptyEmail));
+      } else if (!password) {
+        setError(translate(emptyPassword));
+      } else {
+        try {
+          await loginAuth({ email: email, password: password });
 
-        history.push("/home");
-      } catch (err) {
-        setError(translate(err.response.data.message));
+          history.push("/home");
+        } catch (err) {
+          if(err.response)
+            setError(translate(err.response.data.message));
+          else{
+            setError(translate(''));
+          }
+        }
       }
       setLoading(false);
     },
@@ -38,7 +48,7 @@ export const LoginForm: React.FC = () => {
   );
   return (
     <FormStyle onSubmit={handleClick}>
-      {error && <Error text={error} />}
+      <Error text={error} />
       <FiMailS />
       <InputFormStyle
         value={email}
@@ -63,8 +73,7 @@ export const LoginForm: React.FC = () => {
         >
           ENTRAR
         </ButtonStyle>
-      ): 
-      (
+      ) : (
         <Loading src={Spinner} alt="Carregando" />
       )}
     </FormStyle>

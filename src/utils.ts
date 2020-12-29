@@ -13,7 +13,7 @@ export default function translate(text: String){
         case EmailNpassword:
             return 'Email ou senha incorreto.';
         default:
-            return 'Preencha os campos corretamente';
+            return 'Ocorreu um erro ao fazer login. Verifique suas credenciais.';
     }
 }
 export const emptyName = '"name" is not allowed to be empty';
