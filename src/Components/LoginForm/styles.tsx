@@ -4,12 +4,13 @@ import { FiMail, FiLock } from "react-icons/fi";
 export const FormStyle = styled.form`
   width: 300px;
   margin: auto;
+  position: relative;
 `;
 export const FiMailS = styled(FiMail)`
   position: absolute;
   display: flex;
   margin-left: 8px;
-  margin-top: 10px;
+  top: 10px;
 `;
 export const FiLockS = styled(FiLock)`
   position: absolute;
