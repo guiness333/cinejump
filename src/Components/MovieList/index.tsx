@@ -26,6 +26,7 @@ export const MovieRow = (props: any) => {
                     ? '#E83F5B'
                     : '#000'
                 }
+                data-testid={`favorito-${movie.id}`}
                 className="favorito"
                 onClick={() => props.click(movie)}
               />

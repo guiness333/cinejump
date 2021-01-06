@@ -80,7 +80,6 @@ const Home = () => {
   }, []);
   const GetFavorites = useCallback(async () => {
     const response = await Favorites();
-    console.log(response);
     setFavoritosMovies(JSON.parse(JSON.stringify(response)));
   }, [])
 
