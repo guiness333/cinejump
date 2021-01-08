@@ -7,10 +7,10 @@ export const FormStyle = styled.form`
   position: relative;
 `;
 export const FiMailS = styled(FiMail)`
-  position: absolute;
+  position: relative;
   display: flex;
   margin-left: 8px;
-  top: 10px;
+  top: 28px;
 `;
 export const FiLockS = styled(FiLock)`
   position: absolute;

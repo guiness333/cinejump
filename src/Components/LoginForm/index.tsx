@@ -55,7 +55,7 @@ export const LoginForm: React.FC = () => {
         onChange={(event) => setEmail(event.target.value)}
         placeholder="E-mail"
         type="text"
-      ></InputFormStyle>
+       />
       <FiLockS />
       <InputFormStyle
         value={password}
