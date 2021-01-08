@@ -11,9 +11,8 @@ describe('Tests for header component', () => {
      it('Should render all Menu items', () => {
          const { getByText, getAllByRole } = render(<Header />);
          expect(getByText('Filmes')).toBeInTheDocument();
-         expect(getByText('Séries')).toBeInTheDocument();
          const containerElement = getAllByRole('img');
-         expect(containerElement.length).toEqual(3);
+         expect(containerElement.length).toEqual(2);
      })
 
 })

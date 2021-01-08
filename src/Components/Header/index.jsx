@@ -5,19 +5,19 @@ import {
   LogoStyle,
   LinkStyle,
   UserIcon,
-  SearchIcon,
 } from "./styles";
 import React from "react";
+import { useAuth } from "../../domains/Auth/Hooks";
 
 export const HeaderC = () => {
+  const { logout } = useAuth();
+
+
   return (
     <Header data-testid="Header">
       <Menu>
         <Item>
-          <LinkStyle href="/">Filmes</LinkStyle>
-        </Item>
-        <Item>
-          <LinkStyle href="/">Séries</LinkStyle>
+          <LinkStyle href="/home">Filmes</LinkStyle>
         </Item>
       </Menu>
       <Menu>
@@ -29,12 +29,7 @@ export const HeaderC = () => {
       </Menu>
       <Menu>
         <Item>
-          <LinkStyle href="/">
-            <SearchIcon role="img" size={20} />
-          </LinkStyle>
-        </Item>
-        <Item>
-          <LinkStyle href="/">
+          <LinkStyle href="/" onClick={logout}>
             <UserIcon role="img" fill="#FFF" size={20} />
           </LinkStyle>
         </Item>

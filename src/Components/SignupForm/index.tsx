@@ -39,7 +39,11 @@ export const SignupForm = () => {
           history.push("/");
         }
       } catch (err) {
-        setError(translate(err.response.data.error) || "");
+        console.log(err.response)
+        if(err.response.data.error === 'Bad Request')
+          setError(translate(err.response.data.message));
+        else
+          setError(translate(err.response.data.error));
       }
     }
     setLoading(false);
