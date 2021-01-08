@@ -20,9 +20,9 @@ import {AddFavorite, Favorites} from '../../domains/Cinejump';
 import MovieResponse from "../../domains/Movie/api/Popular/Response";
 import FavoriteResponse from '../../domains/Cinejump/Favorite/Response';
 const Home = () => {
+
   const [favoritosMovies, setFavoritosMovies] = useState([] as FavoriteResponse[]);
 
-  // const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
   const [popularMovies, setPopularMovies] = useState([] as MovieResponse[]);
 
   const [nowMovies, setNowMovies] = useState([] as MovieResponse[]);
@@ -35,18 +35,9 @@ const Home = () => {
     if (
       !favoritosMovies.find((el) => el.originalTitle === movie.originalTitle)
     ) {
-      console.log(movie)
-      ///setFavoritosMovies([...favoritosMovies, movie]);
-
-      // localStorage.setItem(
-      //   "favoritos",
-      //   JSON.stringify([...favoritosMovies, movie])
-      // );
-
       if(movie && movie.id){
         setFavoritosMovies([...favoritosMovies, movie]);
         await AddFavorite(movie.id.toString(), '1');
-        //GetFavorites();
       }
     } else {
       let a = favoritosMovies.find(
@@ -56,20 +47,15 @@ const Home = () => {
       if (a) {
         fav2.splice(favoritosMovies.indexOf(a), 1);
       }
-      console.log(a);
       if (a && a.entity_id){
         setFavoritosMovies([...fav2]);
         await AddFavorite(a.entity_id.toString(), '1');
-        //GetFavorites();
       }
       if (a && a.id){
         setFavoritosMovies([...fav2]);
         await AddFavorite(a.id.toString(), '1');
-        //GetFavorites();
+        
       }
-      //FavoritosMovies([...fav2]);
-      //localStorage.setItem("favoritos", JSON.stringify([...fav2]));
-      
     }
   };
 
@@ -94,7 +80,6 @@ const Home = () => {
   }, []);
   const GetFavorites = useCallback(async () => {
     const response = await Favorites();
-    console.log(response);
     setFavoritosMovies(JSON.parse(JSON.stringify(response)));
   }, [])
 
@@ -103,10 +88,6 @@ const Home = () => {
     PopularMovies();
     NowMovies();
     GetFavorites();
-    // let fav = localStorage.getItem("favoritos");
-    // if (fav) {
-    //   setFavoritosMovies(JSON.parse(fav));
-    // }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
