@@ -10,7 +10,7 @@ export const Highlight = (props: any) => {
   const tmdb = 'https://image.tmdb.org/t/p/w1280/';
   return (
     <MoviesRow scroll={"hidden"}>
-      <TextContainter top={45}>
+      <TextContainter>
         <TitleText>{props.movies[0].title}</TitleText>
         <DiscriptionText>{props.movies[0].overview}</DiscriptionText>
       </TextContainter>
