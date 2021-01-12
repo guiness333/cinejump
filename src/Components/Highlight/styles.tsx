@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const TextContainter = styled("div")<{top: number}>`
+export const TextContainter = styled("div")`
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 0 0 10px 10px;
   position: absolute;
   width: 718px;
-  top: ${(props) => props.top}%;
+  top: 300px;
   max-height: 150px;
 `;
 
@@ -28,6 +28,7 @@ export const CategoryText = styled("h1")<{color?: String}>`
 `;
 export const DiscriptionText = styled("p")`
   color: white;
+  position: relative;
   margin-left: 20px;
   margin-bottom: 20px;
   display: -webkit-box;
