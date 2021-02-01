@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const TextContainter = styled("div")`
+export const TextContainter = styled("div")<{pos: number}>`
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 0 0 10px 10px;
   position: absolute;
   width: 718px;
-  top: 300px;
+  top: ${(props) => props.pos}em;
   max-height: 150px;
 `;
 

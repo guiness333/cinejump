@@ -93,4 +93,4 @@ const Template: Story<ComponentProps<typeof Highlight>> = (args) => (
 );
 
 export const FirstStory = Template.bind({});
-FirstStory.args = {movies: movies};
+FirstStory.args = {movies: movies, pos: 12.5};
