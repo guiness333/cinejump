@@ -3,7 +3,7 @@ import {ReactComponent as Logo} from '../../assets/Logo-red.svg';
 
 import {FiSearch} from  "react-icons/fi";
 import {FaRegUserCircle} from "react-icons/fa";
-export const Header = styled("div")`
+export const Header = styled("header")`
     width: 100%;
     height: 100px;
     display: flex;

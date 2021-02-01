@@ -16,12 +16,13 @@ import {
   TopRated,
   Trailers,
 } from "../../domains/Movie/api";
+import {AddFavorite, Favorites} from '../../domains/Cinejump';
 import MovieResponse from "../../domains/Movie/api/Popular/Response";
-
+import FavoriteResponse from '../../domains/Cinejump/Favorite/Response';
 const Home = () => {
-  const [favoritosMovies, setFavoritosMovies] = useState([] as MovieResponse[]);
 
-  // const [popularMovies, setPopularMovies] = useState(Array<API_MOVIE>());
+  const [favoritosMovies, setFavoritosMovies] = useState([] as FavoriteResponse[]);
+
   const [popularMovies, setPopularMovies] = useState([] as MovieResponse[]);
 
   const [nowMovies, setNowMovies] = useState([] as MovieResponse[]);
@@ -30,15 +31,14 @@ const Home = () => {
 
   const [videosKeys, setVideoKey] = useState(Array<String>());
 
-  const handleClick = (movie: MovieResponse) => {
+  const handleClick = async (movie: FavoriteResponse) => {
     if (
       !favoritosMovies.find((el) => el.originalTitle === movie.originalTitle)
     ) {
-      setFavoritosMovies([...favoritosMovies, movie]);
-      localStorage.setItem(
-        "favoritos",
-        JSON.stringify([...favoritosMovies, movie])
-      );
+      if(movie && movie.id){
+        setFavoritosMovies([...favoritosMovies, movie]);
+        await AddFavorite(movie.id.toString(), '1');
+      }
     } else {
       let a = favoritosMovies.find(
         (el) => el.originalTitle === movie.originalTitle
@@ -47,8 +47,15 @@ const Home = () => {
       if (a) {
         fav2.splice(favoritosMovies.indexOf(a), 1);
       }
-      setFavoritosMovies([...fav2]);
-      localStorage.setItem("favoritos", JSON.stringify([...fav2]));
+      if (a && a.entity_id){
+        setFavoritosMovies([...fav2]);
+        await AddFavorite(a.entity_id.toString(), '1');
+      }
+      if (a && a.id){
+        setFavoritosMovies([...fav2]);
+        await AddFavorite(a.id.toString(), '1');
+        
+      }
     }
   };
 
@@ -71,15 +78,16 @@ const Home = () => {
     const response = await TopRated();
     setTopRatedMovies(response);
   }, []);
+  const GetFavorites = useCallback(async () => {
+    const response = await Favorites();
+    setFavoritosMovies(JSON.parse(JSON.stringify(response)));
+  }, [])
 
   useEffect(() => {
     HighlightMovies();
     PopularMovies();
     NowMovies();
-    let fav = localStorage.getItem("favoritos");
-    if (fav) {
-      setFavoritosMovies(JSON.parse(fav));
-    }
+    GetFavorites();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
@@ -88,7 +96,7 @@ const Home = () => {
       <HeaderBackground />
       <Header />
       {topRatedMovies.length > 0 ? (
-        <Highlight movies={topRatedMovies} />
+        <Highlight movies={topRatedMovies} pos={20}/>
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
