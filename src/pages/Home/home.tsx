@@ -96,7 +96,7 @@ const Home = () => {
       <HeaderBackground />
       <Header />
       {topRatedMovies.length > 0 ? (
-        <Highlight movies={topRatedMovies} />
+        <Highlight movies={topRatedMovies} pos={20}/>
       ) : (
         <CategoryText>
           <img src={Spinner} alt="Carregando" />
